@@ -1,0 +1,5128 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>يوم التأسيس السعودي</title>
+    <script>
+        // Global Detection for Touch Screens (Mobile/Tablet)
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0) {
+            document.documentElement.classList.add('is-touch-device');
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-brown: #9f5200;
+            --secondary-gold: #D4AF37;
+            --light-sand: #F5F1E8;
+            --dark-brown: #4e2901;
+            --accent-cream: #FFF8E7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--light-sand);
+            overflow-x: hidden;
+            direction: rtl;
+        }
+
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-10px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(10px);
+            }
+        }
+
+        .puzzle-board.wrong-answer {
+            animation: shake 0.5s;
+            border: 3px solid #FF4444;
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Landing Page */
+        #landing-page {
+            background-color: #2d1a0a;
+            background-image: url('./خلفية\ يوم\ التأسيس-01.png');
+        }
+
+        /* Tablet/Medium Screen Background */
+        @media (max-width: 1024px) {
+            #landing-page {
+                background-image: url('./خلفية\ يوم\ التأسيس-02.png');
+                background-size: cover;
+                background-position: center top;
+                background-repeat: no-repeat;
+                overflow: hidden;
+                min-height: 100vh;
+            }
+        }
+
+        /* Phone/Small Screen Background */
+        @media (max-width: 600px) {
+            #landing-page {
+                background-image: url('./خلفية\ يوم\ التأسيس-03.png');
+                background-size: cover;
+                background-position: center top;
+                background-repeat: no-repeat;
+                overflow: hidden;
+                min-height: 100vh;
+            }
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, .02) 35px, rgba(255, 255, 255, .02) 70px);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo-symbol {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            background: var(--secondary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: bold;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.4);
+        }
+
+        .hero-title {
+            font-family: 'Amiri', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-top: 15px;
+            /* Prevent diacritics from clipping */
+            line-height: normal;
+            background: linear-gradient(to right, #fff, var(--secondary-gold), #fff);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 5s linear infinite;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 2;
+            opacity: 0.9;
+        }
+
+        .btn-custom {
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 3px solid var(--secondary-gold);
+            background: var(--secondary-gold);
+            color: var(--dark-brown);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .btn-custom span,
+        .btn-custom2 span {
+            pointer-events: none;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+            color: var(--dark-brown);
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-custom:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-custom2 {
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: 3px solid var(--secondary-gold);
+            background: #874a23;
+            color: var(--dark-brown);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .btn-custom2:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.5);
+            color: var(--dark-brown);
+        }
+
+        .btn-custom2::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-custom2:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Info Slider Page */
+        #info-slider-page {
+            background: var(--light-sand);
+            padding: 2rem 0;
+        }
+
+        .slider-header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary-gold);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                width: 80%;
+                margin: 10px 0;
+            }
+
+            .logo-symbol {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            #horse-ui {
+                top: 10px !important;
+                left: 10px !important;
+                padding: 8px 15px !important;
+                font-size: 1rem !important;
+            }
+
+            #horse-ui div {
+                font-size: 1.1rem !important;
+            }
+
+            /* Hide desktop controls on mobile, show via JS if needed */
+        }
+
+
+
+        .slider-header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 3rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 30px;
+            padding: 2rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid var(--secondary-gold);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-brown), var(--secondary-gold), var(--primary-brown));
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+
+        .info-number {
+            font-size: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-text {
+            font-size: 2rem;
+            line-height: 2.2;
+            color: var(--dark-brown);
+            font-weight: 500;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .arrow-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .arrow-btn:hover {
+            background: var(--secondary-gold);
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .arrow-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-indicator {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            color: var(--primary-brown);
+            font-weight: 600;
+        }
+
+        .game-btn-container {
+            text-align: center;
+            margin-top: 3rem;
+            left: 50%;
+        }
+
+        /* Game Page */
+        #game-page {
+            background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .game-header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            color: var(--dark-brown);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-info {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            gap: 3rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .game-stat {
+            text-align: center;
+        }
+
+        .game-stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .game-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+        }
+
+        #gameCanvas {
+            display: block;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 60%, #8B7355 60%, #6B5839 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        .game-controls {
+            text-align: center;
+            margin-top: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .game-controls h3 {
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+        }
+
+        .control-key {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: var(--primary-brown);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .back-btn:hover {
+            background: var(--dark-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 2D Game Mobile Controls */
+        #mobile-controls-2d {
+            display: none;
+            justify-content: space-between;
+            padding: 10px 20px;
+            margin-top: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .d-pad-2d {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-pad-2d {
+            display: flex;
+            align-items: center;
+        }
+
+        .control-btn-2d {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(159, 82, 0, 0.8);
+            /* var(--primary-brown) */
+            color: white;
+            border: 2px solid white;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            touch-action: manipulation;
+        }
+
+        .jump-btn-2d {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .control-btn-2d:active {
+            background: var(--dark-brown);
+            transform: scale(0.9);
+        }
+
+        @media (max-width: 768px) {
+            #mobile-controls-2d {
+                display: flex;
+            }
+        }
+
+        .is-touch-device #mobile-controls-2d {
+            display: flex;
+        }
+
+        /* Puzzle Game Page */
+        #puzzle-page {
+            background: var(--light-sand);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .puzzle-header {
+            text-align: center;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--primary-brown), var(--dark-brown));
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .puzzle-header h1 {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .puzzle-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .puzzle-info {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .puzzle-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            width: 450px;
+            height: 450px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .puzzle-piece {
+            background-size: 450px 450px;
+            background-repeat: no-repeat;
+            border: 2px solid var(--secondary-gold);
+            border-radius: 8px;
+            cursor: move;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .puzzle-piece.dragging {
+            opacity: 0.4;
+            transform: scale(0.95);
+            border-color: #FF6B6B;
+        }
+
+        .puzzle-piece.drag-over {
+            border-color: #4CAF50;
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        .puzzle-piece.correct {
+            border-color: #4CAF50;
+            cursor: default;
+        }
+
+        .puzzle-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .puzzle-btn {
+            background: var(--secondary-gold);
+            color: var(--dark-brown);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .puzzle-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .puzzle-timer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-brown);
+            margin: 1rem 0;
+        }
+
+        .puzzle-moves {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Modal for level complete */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .modal-content h2 {
+            font-family: 'Amiri', serif;
+            color: var(--primary-brown);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-info-text {
+            font-size: 1.5rem;
+            color: var(--dark-brown);
+            line-height: 2;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: var(--light-sand);
+            border-radius: 15px;
+            border-right: 5px solid var(--secondary-gold);
+        }
+
+        .modal-btn {
+            background: var(--secondary-gold);
+            color: var(--dark-brown);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px),
+        (max-height: 500px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .info-text {
+                font-size: 1.5rem;
+            }
+
+            #gameCanvas {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .puzzle-board {
+                width: 320px;
+                height: 320px;
+            }
+
+            .puzzle-piece {
+                background-size: 320px 320px;
+            }
+
+            .puzzle-controls {
+                flex-direction: column;
+            }
+
+            .puzzle-btn,
+            .back-btn {
+                width: 90%;
+                margin: 0.5rem auto;
+            }
+
+            .puzzle-header h1 {
+                font-size: 2rem;
+            }
+
+            /* 3D Game Mobile UI Scaling */
+            #horse-ui {
+                padding: 10px 15px !important;
+                top: 10px !important;
+                left: 10px !important;
+                width: 180px !important;
+                /* Fixed smaller width */
+            }
+
+            #horse-ui>div {
+                font-size: 0.9rem !important;
+                /* Smaller counter text */
+                margin-bottom: 5px !important;
+            }
+
+            #horse-ui button {
+                padding: 5px 10px !important;
+                font-size: 0.8rem !important;
+                /* Smaller button text */
+            }
+
+            #horse-3d-page>div[style*="top:20px;right:20px"] {
+                top: 10px !important;
+                right: 10px !important;
+                padding: 10px 12px !important;
+                width: 140px !important;
+                /* Smaller controls box */
+            }
+
+            #horse-3d-page>div[style*="top:20px;right:20px"]>div:first-child {
+                font-size: 0.9rem !important;
+                margin-bottom: 5px !important;
+            }
+
+            #horse-3d-page>div[style*="top:20px;right:20px"]>div:nth-child(2) {
+                font-size: 0.75rem !important;
+                /* Very small control text */
+                line-height: 1.4 !important;
+            }
+
+            /* Ensure Keyboard Controls are entirely hidden on Mobile */
+            #keyboard-controls,
+            div[id="keyboard-controls"] {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
+
+            /* Move Info Bar to Top on mobile so it doesn't block thumbs */
+            #info-bar {
+                top: 90px !important;
+                bottom: auto !important;
+                padding: 10px 20px !important;
+                min-height: 40px !important;
+            }
+
+            #info-bar div {
+                font-size: 0.85rem !important;
+            }
+
+            /* Move Minimap to Top Right and shrink it */
+            #minimap {
+                top: 10px !important;
+                right: 10px !important;
+                bottom: auto !important;
+                left: auto !important;
+                width: 100px !important;
+                height: 100px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .puzzle-board {
+                width: 280px;
+                height: 280px;
+            }
+
+            .puzzle-piece {
+                background-size: 280px 280px;
+            }
+        }
+
+        /* Enforce Mobile/Touch specifically regardless of Landscape/Portrait Media Queries */
+        @media (max-width: 768px) {
+            #keyboard-controls {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+            }
+
+            #mobile-controls {
+                display: block !important;
+            }
+
+            #minimap {
+                bottom: 200px !important;
+            }
+        }
+
+        html.is-touch-device #keyboard-controls {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        html.is-touch-device #mobile-controls {
+            display: block !important;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            animation: zoomIn 1.5s ease-out;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .landing-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .landing-slider-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            width: 800px;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .landing-slider {
+                flex-wrap: wrap;
+            }
+
+            .landing-slider-content {
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+                min-height: 150px;
+            }
+
+            .arrow-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .slider-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* ==========================================
+           COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+           ========================================== */
+
+        /* --- Fluid Typography Base --- */
+        html {
+            font-size: clamp(14px, 2.5vw, 18px);
+        }
+
+        /* --- Large Tablets & Small Desktops (≤1200px) --- */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .slider-container {
+                max-width: 900px;
+                padding: 0 2rem;
+            }
+
+            .info-text {
+                font-size: 1.6rem;
+                line-height: 2;
+            }
+
+            .game-info {
+                gap: 2rem;
+            }
+        }
+
+        /* --- Tablets (≤1024px) --- */
+        @media (max-width: 1024px) {
+            .hero-container {
+                padding: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-description {
+                font-size: 1.05rem;
+                max-width: 90%;
+                line-height: 1.9;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 15px 40px;
+                font-size: 1.15rem;
+            }
+
+            .logo-symbol {
+                width: 140px;
+                height: 140px;
+                font-size: 3rem;
+            }
+
+            .info-card {
+                padding: 1.5rem;
+                min-height: 180px;
+                border-radius: 20px;
+            }
+
+            .info-text {
+                font-size: 1.4rem;
+                line-height: 2;
+            }
+
+            .info-number {
+                font-size: 1.3rem;
+            }
+
+            .slider-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .game-header h1 {
+                font-size: 2.5rem;
+            }
+
+            #gameCanvas {
+                max-width: 100%;
+                height: auto !important;
+            }
+
+            .game-controls {
+                max-width: 95%;
+                padding: 1.2rem;
+            }
+
+            .puzzle-board {
+                width: min(400px, 85vw);
+                height: min(400px, 85vw);
+            }
+
+            .puzzle-piece {
+                background-size: min(400px, 85vw) min(400px, 85vw);
+            }
+
+            .modal-content {
+                max-width: 90%;
+                padding: 2rem;
+                margin: 1rem;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .modal-content h2 {
+                font-size: 2rem;
+            }
+
+            .modal-info-text {
+                font-size: 1.2rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* --- Mobile Landscape & Small Tablets (≤768px) --- */
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.95rem;
+            }
+
+            .hero-container {
+                padding: 1rem;
+                min-height: 100dvh;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 7vw, 3rem);
+                margin-bottom: 0.7rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+                padding: 0 0.5rem;
+                max-width: 100%;
+                margin-bottom: 2rem;
+                line-height: 1.8;
+            }
+
+            .logo-symbol {
+                width: 110px;
+                height: 110px;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 14px 35px;
+                font-size: 1.05rem;
+                width: auto;
+                min-width: 200px;
+                max-width: 85%;
+                margin: 8px auto;
+                display: block;
+            }
+
+            .landing-slider {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 10px;
+                padding: 0 0.5rem;
+            }
+
+            .landing-slider-content {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .arrow-btn {
+                width: 44px;
+                height: 44px;
+                min-width: 44px;
+                font-size: 1.3rem;
+                flex-shrink: 0;
+            }
+
+            .info-card {
+                padding: 1.2rem;
+                min-height: 140px;
+                border-radius: 15px;
+            }
+
+            .info-text {
+                font-size: clamp(1rem, 3.5vw, 1.4rem);
+                line-height: 1.9;
+            }
+
+            .info-number {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .slider-container {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            .progress-indicator {
+                font-size: 1rem;
+                margin-top: 1rem;
+            }
+
+            /* Game Page Mobile */
+            .game-header h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .game-info {
+                padding: 0.8rem 1.2rem;
+                gap: 1.5rem;
+                width: 90%;
+                justify-content: center;
+            }
+
+            .game-stat-value {
+                font-size: 1.3rem;
+            }
+
+            .game-stat-label {
+                font-size: 0.8rem;
+            }
+
+            #gameCanvas {
+                width: 100% !important;
+                height: auto !important;
+                border-radius: 10px;
+            }
+
+            .game-controls {
+                padding: 1rem;
+                max-width: 100%;
+                border-radius: 12px;
+            }
+
+            .game-controls h3 {
+                font-size: 1rem;
+            }
+
+            .control-key {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.85rem;
+                border-radius: 6px;
+            }
+
+            /* Puzzle Page Mobile */
+            .puzzle-header {
+                padding: 1.5rem 1rem;
+                border-radius: 15px;
+                margin-bottom: 1.5rem;
+            }
+
+            .puzzle-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .puzzle-header p {
+                font-size: 1rem;
+            }
+
+            .puzzle-board {
+                width: min(320px, 80vw);
+                height: min(320px, 80vw);
+                padding: 8px;
+                gap: 3px;
+                border-radius: 12px;
+                margin: 1.5rem auto;
+            }
+
+            .puzzle-piece {
+                background-size: min(320px, 80vw) min(320px, 80vw);
+                border-radius: 6px;
+            }
+
+            .puzzle-info {
+                padding: 1rem;
+                border-radius: 12px;
+                margin-bottom: 1.5rem;
+            }
+
+            .puzzle-timer {
+                font-size: 1.2rem;
+            }
+
+            .puzzle-moves {
+                font-size: 1rem;
+            }
+
+            .puzzle-controls {
+                flex-direction: column;
+                gap: 0.7rem;
+                margin-top: 1.5rem;
+            }
+
+            .puzzle-btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 12px 25px;
+                font-size: 1.05rem;
+                border-radius: 20px;
+                min-height: 44px;
+            }
+
+            .back-btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0.5rem auto 0;
+                padding: 12px 25px;
+                font-size: 1rem;
+                min-height: 44px;
+            }
+
+            /* Modal Mobile */
+            .modal-overlay {
+                padding: 1rem;
+                align-items: center;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 95%;
+                border-radius: 16px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+            .modal-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .modal-info-text {
+                font-size: 1.1rem;
+                padding: 1rem;
+                line-height: 1.8;
+            }
+
+            .modal-btn {
+                padding: 12px 30px;
+                font-size: 1.05rem;
+                min-height: 44px;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            /* 3D Horse Game Mobile */
+            #horse-ui {
+                top: 10px !important;
+                left: 10px !important;
+                padding: 10px 15px !important;
+                font-size: 0.9rem !important;
+                border-radius: 10px !important;
+                max-width: 180px !important;
+            }
+
+            #horse-ui div {
+                font-size: 1rem !important;
+                margin-bottom: 5px !important;
+            }
+
+            #horse-ui button {
+                padding: 6px 12px !important;
+                font-size: 0.85rem !important;
+                min-height: 36px !important;
+            }
+
+            #keyboard-controls {
+                top: 10px !important;
+                right: 10px !important;
+                padding: 10px 14px !important;
+                font-size: 0.85rem !important;
+                border-radius: 10px !important;
+            }
+
+            #info-bar {
+                padding: 12px 20px !important;
+                min-height: 50px !important;
+            }
+
+            #info-bar div {
+                font-size: 0.85rem !important;
+            }
+
+            #minimap {
+                width: 120px !important;
+                height: 120px !important;
+            }
+
+            /* Loading Screen Mobile */
+            #horse-loading div:nth-child(2) {
+                font-size: 1.4rem !important;
+            }
+
+            #horse-loading div:nth-child(1) {
+                font-size: 2.5rem !important;
+            }
+
+            #congrats {
+                padding: 2rem !important;
+                font-size: 1.8rem !important;
+                width: 90% !important;
+                max-width: 400px !important;
+                border-radius: 20px !important;
+            }
+
+            #congrats div:first-child {
+                font-size: 3rem !important;
+            }
+        }
+
+        /* --- Mobile Portrait (≤480px) --- */
+        @media (max-width: 480px) {
+            .hero-container {
+                padding: 0.8rem;
+            }
+
+            .hero-title {
+                font-size: clamp(1.6rem, 8vw, 2.2rem);
+                padding-top: 10px;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                line-height: 1.7;
+                margin-bottom: 1.5rem;
+            }
+
+            .logo-symbol {
+                width: 90px;
+                height: 90px;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 12px 25px;
+                font-size: 1rem;
+                min-width: 180px;
+                max-width: 90%;
+                border-radius: 30px;
+            }
+
+            .landing-slider {
+                gap: 8px;
+                padding: 0 0.3rem;
+            }
+
+            .arrow-btn {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: 1.1rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+                min-height: 120px;
+                border-radius: 12px;
+                border-width: 2px;
+            }
+
+            .info-text {
+                font-size: clamp(0.9rem, 3.2vw, 1.15rem);
+                line-height: 1.8;
+            }
+
+            .info-number {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .progress-indicator {
+                font-size: 0.85rem;
+            }
+
+            .info-card::before {
+                height: 3px;
+            }
+
+            /* Game Page Small Mobile */
+            .game-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .game-info {
+                padding: 0.6rem 1rem;
+                gap: 1rem;
+                width: 95%;
+                flex-wrap: wrap;
+            }
+
+            .game-stat-value {
+                font-size: 1.1rem;
+            }
+
+            #game-page {
+                padding: 1rem;
+            }
+
+            .game-controls {
+                padding: 0.8rem;
+            }
+
+            /* Puzzle Small Mobile */
+            .puzzle-board {
+                width: min(280px, 85vw);
+                height: min(280px, 85vw);
+                padding: 6px;
+                gap: 2px;
+            }
+
+            .puzzle-piece {
+                background-size: min(280px, 85vw) min(280px, 85vw);
+            }
+
+            #puzzle-page {
+                padding: 1rem;
+            }
+
+            .puzzle-header {
+                padding: 1rem 0.8rem;
+                border-radius: 12px;
+            }
+
+            .puzzle-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .puzzle-timer {
+                font-size: 1.1rem;
+            }
+
+            .puzzle-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+
+            /* Modal Small Mobile */
+            .modal-content {
+                padding: 1.2rem;
+                border-radius: 14px;
+                max-height: 80vh;
+            }
+
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .modal-info-text {
+                font-size: 1rem;
+                padding: 0.8rem;
+                margin: 1rem 0;
+                line-height: 1.7;
+            }
+
+            /* 3D Game Small Mobile */
+            #horse-ui {
+                top: 5px !important;
+                left: 5px !important;
+                padding: 8px 12px !important;
+                font-size: 0.8rem !important;
+                max-width: 160px !important;
+                border-radius: 8px !important;
+            }
+
+            #horse-ui div {
+                font-size: 0.9rem !important;
+            }
+
+            #horse-ui button {
+                padding: 5px 10px !important;
+                font-size: 0.75rem !important;
+            }
+
+            #minimap {
+                width: 90px !important;
+                height: 90px !important;
+                bottom: 10px !important;
+                left: 10px !important;
+            }
+
+            #congrats {
+                padding: 1.5rem !important;
+                font-size: 1.4rem !important;
+                border-radius: 16px !important;
+            }
+
+            #congrats div:first-child {
+                font-size: 2.5rem !important;
+            }
+
+            /* Mobile Action Buttons Bigger Touch Targets */
+            #btn-dash,
+            #btn-sprint {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            #btn-jump {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+
+        /* --- Extra Small Mobile (≤360px) --- */
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                min-width: 160px;
+                border-width: 2px;
+            }
+
+            .logo-symbol {
+                width: 75px;
+                height: 75px;
+                font-size: 1.7rem;
+            }
+
+            .info-card {
+                min-height: 100px;
+                padding: 0.8rem;
+            }
+
+            .info-text {
+                font-size: 0.85rem;
+                line-height: 1.7;
+            }
+
+            .arrow-btn {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 1rem;
+            }
+
+            .puzzle-board {
+                width: min(250px, 90vw);
+                height: min(250px, 90vw);
+            }
+
+            .puzzle-piece {
+                background-size: min(250px, 90vw) min(250px, 90vw);
+            }
+
+            .game-header h1 {
+                font-size: 1.3rem;
+            }
+
+            .modal-content h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* --- Landscape Mode Optimizations --- */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-container {
+                min-height: 100dvh;
+                padding: 0.5rem 1rem;
+            }
+
+            .logo-symbol {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .hero-description {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+            }
+
+            .btn-custom,
+            .btn-custom2 {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+                margin: 5px;
+                display: inline-block;
+                width: auto;
+            }
+
+            .info-card {
+                min-height: 80px;
+                padding: 0.8rem;
+            }
+
+            .info-text {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+                padding: 1rem;
+            }
+
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+
+            #horse-ui {
+                padding: 6px 10px !important;
+                font-size: 0.75rem !important;
+                max-width: 150px !important;
+            }
+        }
+
+        /* --- safe-area support for notched devices --- */
+        @supports (padding: max(0px)) {
+            .hero-container {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+                padding-bottom: max(1rem, env(safe-area-inset-bottom));
+            }
+
+            #info-bar {
+                padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
+            }
+
+            #mobile-controls {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+
+        /* --- Touch device specific --- */
+        @media (hover: none) and (pointer: coarse) {
+
+            .btn-custom,
+            .btn-custom2,
+            .arrow-btn,
+            .puzzle-btn,
+            .back-btn,
+            .modal-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .btn-custom:hover,
+            .btn-custom2:hover,
+            .arrow-btn:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .btn-custom:active,
+            .btn-custom2:active {
+                transform: scale(0.97);
+                transition: transform 0.1s;
+            }
+
+            .arrow-btn:active {
+                transform: scale(0.9);
+                background: var(--secondary-gold);
+            }
+
+            .puzzle-piece:hover {
+                transform: none;
+            }
+        }
+
+        /* --- Print styles (hide interactive elements) --- */
+        @media print {
+            .page:not(.active) {
+                display: none !important;
+            }
+
+            .btn-custom,
+            .btn-custom2,
+            .arrow-btn,
+            .puzzle-btn,
+            .back-btn,
+            .game-controls,
+            #mobile-controls,
+            #keyboard-controls,
+            #horse-ui,
+            #info-bar,
+            #minimap {
+                display: none !important;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.137.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+
+<body>
+
+
+    <!-- Landing Page (Now includes the Info Slider and Games) -->
+    <div id="landing-page" class="page active">
+        <div class="pattern-overlay"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title" style="visibility: hidden; margin-bottom: 2rem;">يوم التأسيس</h1>
+
+                <!-- Game Buttons (Placed First) -->
+                <div class="game-btn-container"
+                    style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <button class="btn-custom" onclick="window.showPage('game-page')"
+                        style="box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                        <span style="position: relative; z-index: 2;">🎮 العب واتعلم</span>
+                    </button>
+                    <button class="btn-custom2" onclick="window.showPage('horse-3d-page')"
+                        style="box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                        <span style="position: relative; z-index: 2; color: #fcb05e;">🐎 رحلة الدرعية</span>
+                    </button>
+                </div>
+
+                <!-- Info Slider Container -->
+                <div class="slider-container landing-slider">
+                    <!-- Left Arrow -->
+                    <button class="arrow-btn" id="nextBtn" onclick="window.nextInfo()"
+                        style="flex-shrink: 0; z-index: 10; justify-content: center; align-items: center; padding-left: 6px;">▶</button>
+
+                    <!-- Info Card -->
+                    <div class="landing-slider-content">
+                        <div class="info-card" id="infoCard" style="margin: 0; width: 100%; min-width: 100%;">
+                            <div class="info-number" id="infoNumber">1 / 50</div>
+                            <div class="info-text" id="infoText" style="font-size: 1.5rem;"></div>
+                        </div>
+                        <div class="progress-indicator" id="progressIndicator"
+                            style="color: white; font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); margin-top: 10px; margin-bottom: 0;">
+                            المعلومة 1 من 50
+                        </div>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button class="arrow-btn" id="prevBtn" onclick="window.previousInfo()"
+                        style="flex-shrink: 0; z-index: 10; justify-content: center; align-items: center; padding-right: 6px;">◀</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div id="game-page" class="page">
+        <div class="game-header">
+            <h1>🎮 لعبة يوم التأسيس</h1>
+            <div class="game-info">
+                <div class="game-stat">
+                    <div class="game-stat-label">المستوى</div>
+                    <div class="game-stat-value" id="currentLevel">1</div>
+                </div>
+                <div class="game-stat">
+                    <div class="game-stat-label">المعلومات المكتشفة</div>
+                    <div class="game-stat-value" id="collectedInfo">0</div>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <!-- Mobile Controls for 2D Game -->
+        <div id="mobile-controls-2d">
+            <div class="d-pad-2d">
+                <button class="control-btn-2d" ontouchstart="keys2['ArrowRight']=true; event.preventDefault()"
+                    ontouchend="keys2['ArrowRight']=false; event.preventDefault()"
+                    onmousedown="keys2['ArrowRight']=true" onmouseup="keys2['ArrowRight']=false"
+                    onmouseleave="keys2['ArrowRight']=false">▶</button>
+                <button class="control-btn-2d" ontouchstart="keys2['ArrowLeft']=true; event.preventDefault()"
+                    ontouchend="keys2['ArrowLeft']=false; event.preventDefault()" onmousedown="keys2['ArrowLeft']=true"
+                    onmouseup="keys2['ArrowLeft']=false" onmouseleave="keys2['ArrowLeft']=false">◀</button>
+            </div>
+            <div class="action-pad-2d">
+                <button class="control-btn-2d jump-btn-2d" ontouchstart="keys2[' ']=true; event.preventDefault()"
+                    ontouchend="keys2[' ']=false; event.preventDefault()" onmousedown="keys2[' ']=true"
+                    onmouseup="keys2[' ']=false" onmouseleave="keys2[' ']=false">قفز ⬆</button>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <h3>طريقة اللعب</h3>
+            <div>
+                <span class="control-key">←</span>
+                <span class="control-key">→</span>
+                للحركة يمين ويسار
+            </div>
+            <div style="margin-top: 0.5rem;">
+                <span class="control-key">مسافة</span>
+                للقفز
+            </div>
+            <p style="margin-top: 1rem; color: #666;">
+                اجمع المعلومات واكمل جميع المستويات!<br>
+                احذر من الأشواك!<br>
+                استخدم المنصات المتحركة!<br>
+            </p>
+            <button class="back-btn" onclick="showPage('landing-page')">
+                العودة للمعلومات
+            </button>
+        </div>
+    </div>
+
+    <!-- Level Complete Modal -->
+    <div class="modal-overlay" id="levelModal">
+        <div class="modal-content">
+            <h2>🎉 أحسنت!</h2>
+            <p style="font-size: 1.2rem; color: var(--primary-brown); font-weight: 600;">
+                لقد أكملت المستوى <span id="modalLevel"></span>
+            </p>
+            <div class="modal-info-text" id="modalInfoText"></div>
+            <button class="modal-btn" onclick="nextLevel()">
+                المستوى التالي ◀
+            </button>
+        </div>
+    </div>
+
+    <!-- Puzzle Game Page
+    <div id="puzzle-page" class="page">
+        <div class="puzzle-header">
+            <h1>🧩 لعبة بازل الأزياء السعودية</h1>
+            <p style="font-size: 1.2rem;">اختر صورة ورتب القطع لتكوين الصورة الكاملة!</p>
+        </div>
+
+        <div class="puzzle-container">
+            <div class="puzzle-info" style="margin-bottom: 1rem;">
+                <h3 style="margin-bottom: 1rem;">🎨 اختر صورة:</h3>
+
+                <div style="margin-bottom: 1rem;">
+                    <label for="imageUpload" class="puzzle-btn"
+                        style="cursor: pointer; display: inline-block; background: #4CAF50; border-color: #4CAF50;">
+                        📤 ارفع صورتك الخاصة
+                    </label>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;"
+                        onchange="loadCustomImage(event)">
+                </div>
+
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+                    أو اختر من الصور الافتراضية:
+                </p>
+
+                <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                    <button class="puzzle-btn" style="padding: 10px 20px; font-size: 1rem;"
+                        onclick="changePuzzleImage(0)">الزي التقليدي</button>
+                    <button class="puzzle-btn" style="padding: 10px 20px; font-size: 1rem;"
+                        onclick="changePuzzleImage(1)">الثوب والشماغ</button>
+                    <button class="puzzle-btn" style="padding: 10px 20px; font-size: 1rem;"
+                        onclick="changePuzzleImage(2)">الأزياء التراثية</button>
+                    <button class="puzzle-btn" style="padding: 10px 20px; font-size: 1rem;"
+                        onclick="changePuzzleImage(3)">البشت الفاخر</button>
+                    <button class="puzzle-btn" style="padding: 10px 20px; font-size: 1rem;"
+                        onclick="changePuzzleImage(4)">الزي الشعبي</button>
+                </div>
+            </div>
+
+            <div style="margin: 1rem auto; text-align: center;">
+                <p style="font-size: 1rem; color: var(--primary-brown); font-weight: 600; margin-bottom: 0.5rem;">
+                    الصورة الأصلية: <span id="currentImageName">الزي السعودي التقليدي</span>
+                </p>
+                <img id="previewImage" src="" alt="Preview" style="max-width: 150px; max-height: 150px; border-radius: 10px; 
+                            border: 3px solid var(--secondary-gold); box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            </div>
+
+            <div class="puzzle-info">
+                <div class="puzzle-timer" id="puzzleTimer">الوقت: 00:00</div>
+                <div class="puzzle-moves">عدد التحركات: <span id="puzzleMoves">0</span></div>
+                <div class="puzzle-moves" style="color: #FF4444;">المحاولات الخاطئة: <span id="wrongAttempts">0</span>
+                </div>
+            </div>
+
+            <div class="puzzle-board" id="puzzleBoard">
+            </div>
+
+            <div class="puzzle-controls">
+                <button class="puzzle-btn" onclick="checkSolution()"
+                    style="background: #4CAF50; border-color: #4CAF50;">✓ تحقق من الحل</button>
+                <button class="puzzle-btn" onclick="shufflePuzzle()">🔀 خلط القطع</button>
+                <button class="puzzle-btn" onclick="resetPuzzle()">🔄 إعادة البدء</button>
+                <button class="back-btn" onclick="showPage('landing-page')">العودة للمعلومات</button>
+            </div>
+        </div>
+    </div>
+
+ <div class="modal-overlay" id="puzzleCompleteModal">
+        <div class="modal-content">
+            <h2>🎉 مبروك!</h2>
+            <p style="font-size: 1.8rem; color: var(--primary-brown); font-weight: 700;">
+                لقد أكملت البازل بنجاح!
+            </p>
+            <div style="font-size: 1.3rem; margin: 2rem 0;">
+                <p>⏱️ الوقت: <strong id="finalTime"></strong></p>
+                <p>🔢 عدد التحركات: <strong id="finalMoves"></strong></p>
+                <p style="color: #FF4444;">❌ المحاولات الخاطئة: <strong id="finalWrongAttempts">0</strong></p>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <p style="font-size: 1.2rem; color: var(--primary-brown); margin-bottom: 1rem;">
+                    اختر صورة جديدة:
+                </p>
+                <div
+                    style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                    <button class="puzzle-btn" style="padding: 8px 15px; font-size: 0.9rem;"
+                        onclick="selectNewImage(0)">الزي التقليدي</button>
+                    <button class="puzzle-btn" style="padding: 8px 15px; font-size: 0.9rem;"
+                        onclick="selectNewImage(1)">الثوب والشماغ</button>
+                    <button class="puzzle-btn" style="padding: 8px 15px; font-size: 0.9rem;"
+                        onclick="selectNewImage(2)">الأزياء التراثية</button>
+                    <button class="puzzle-btn" style="padding: 8px 15px; font-size: 0.9rem;"
+                        onclick="selectNewImage(3)">البشت الفاخر</button>
+                    <button class="puzzle-btn" style="padding: 8px 15px; font-size: 0.9rem;"
+                        onclick="selectNewImage(4)">الزي الشعبي</button>
+                </div>
+            </div>
+
+            <button class="modal-btn" onclick="resetPuzzleAndClose()">
+                نفس الصورة 🔄
+            </button>
+            <button class="modal-btn"
+                onclick="document.getElementById('puzzleCompleteModal').classList.remove('active')"
+                style="background: #666; margin-top: 1rem;">
+                إغلاق
+            </button>
+        </div>
+    </div> -->
+
+    <!-- ================= 3D HORSE GAME ================= -->
+    <div id="horse-3d-page" class="page">
+        <div id="congrats"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:linear-gradient(135deg, #006C35, #00A651); color:white; padding:3rem 4rem; border-radius:25px; font-size:2.5rem; font-weight:800; z-index:10000; box-shadow:0 20px 80px rgba(0,0,0,0.5); text-align:center; animation: pulse 2s infinite;">
+            <div style="font-size:4rem; margin-bottom:1rem;">🎉🏆🎉</div>
+            <div>مبروك! أكملت رحلة التأسيس</div>
+            <div style="font-size:1.5rem; margin-top:1rem; opacity:0.9;">جمعت جميع المعلومات الـ 50</div>
+            <div style="font-size:1.2rem; margin-top:1rem; opacity:0.8;">⭐ يوم بدينا ⭐</div>
+        </div>
+
+        <!-- Top UI - Collection Counter -->
+        <div id="horse-ui"
+            style="position:absolute;top:20px;left:20px;color:white;font-size:1.3rem;z-index:1000;background:rgba(0,0,0,0.7);padding:15px 25px;border-radius:15px;backdrop-filter:blur(10px);">
+            <div style="font-size:1.5rem; font-weight:700; margin-bottom: 10px;">المعلومات المكتشفة: <span
+                    id="horse-count">0</span>/50</div>
+            <button onclick="window.location.reload()"
+                style="background:var(--primary-brown); color:white; border:none; padding:8px 15px; border-radius:8px; cursor:pointer; font-family:'Cairo', sans-serif; font-weight:bold; width: 100%; transition: background 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"
+                onmouseover="this.style.background='var(--secondary-gold)'"
+                onmouseout="this.style.background='var(--primary-brown)'">
+                العودة للرئيسية
+            </button>
+        </div>
+
+        <!-- Controls Display -->
+        <div id="keyboard-controls"
+            style="position:absolute;top:20px;right:20px;color:white;font-size:1rem;z-index:1000;background:rgba(0,0,0,0.7);padding:15px 20px;border-radius:15px;text-align:right;backdrop-filter:blur(10px);">
+            <div style="margin-bottom:8px; font-weight:700; font-size:1.1rem;">🎮 التحكم:</div>
+            <div style="font-size:0.9rem; opacity:0.95; line-height:1.6;">
+                <div>W / ↑ - للأمام</div>
+                <div>S / ↓ - للخلف</div>
+                <div>A / ← - دوران يسار (انجراف)</div>
+                <div>D / → - دوران يمين (انجراف)</div>
+                <div style="margin-top:5px; color:#D4AF37;">Space - قفز</div>
+                <div style="color:#D4AF37;">Shift - سرعة إضافية</div>
+                <div style="color:#D4AF37;">Q - اندفاع سريع</div>
+            </div>
+        </div>
+
+        <!-- Right Side Info Box - Shows collected information -->
+        <div id="info-bar"
+            style="position:absolute;top:280px;right:20px;width:600px;background:rgba(0,0,0,0.8);color:#D4AF37;padding:20px;border-radius:15px;z-index:1000;text-align:right;backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity 0.5s;border:1px solid rgba(212,175,55,0.3);">
+            <div style="font-size:1rem; opacity:0.8;">اجمع المعلومات الذهبية لتتعلم عن تاريخ التأسيس السعودي! ✨</div>
+        </div>
+
+        <!-- Minimap -->
+        <canvas id="minimap"
+            style="position:absolute;bottom:20px;left:20px;width:150px;height:150px;z-index:100;border:2px solid rgba(212,175,55,0.7);border-radius:12px;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);"></canvas>
+
+        <!-- Mobile Controls (Shrunk for better visibility) -->
+        <div id="mobile-controls" style="display:none;">
+            <!-- Joystick Zone -->
+            <div id="joystick-zone"
+                style="position:absolute;bottom:30px;left:30px;width:100px;height:100px;background:rgba(255,255,255,0.1);border-radius:50%;border:2px solid rgba(255,255,255,0.3);touch-action:none;z-index:9000;">
+                <div id="joystick-knob"
+                    style="position:absolute;top:25px;left:25px;width:50px;height:50px;background:rgba(255,255,255,0.5);border-radius:50%;pointer-events:none;transform:translate(0,0);">
+                </div>
+            </div>
+            <!-- Action Buttons -->
+            <div
+                style="position:absolute;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;align-items:center;z-index:9000;">
+                <div style="display:flex;gap:10px;">
+                    <button id="btn-dash"
+                        style="width:45px;height:45px;border-radius:50%;background:rgba(255,100,100,0.6);border:2px solid white;color:white;font-weight:bold;touch-action:none;font-size:14px;">⚡</button>
+                    <button id="btn-sprint"
+                        style="width:45px;height:45px;border-radius:50%;background:rgba(100,200,255,0.6);border:2px solid white;color:white;font-weight:bold;touch-action:none;font-size:14px;">💨</button>
+                </div>
+                <button id="btn-jump"
+                    style="width:55px;height:55px;border-radius:50%;background:rgba(255,200,50,0.6);border:2px solid white;color:white;font-size:18px;touch-action:none;">🦘</button>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="horse-loading"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#1a0f05,#2d1a0a,#3d2510);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div style="font-size:3rem;margin-bottom:1rem;">🐎</div>
+            <div
+                style="color:#D4AF37;font-size:1.8rem;font-weight:700;margin-bottom:0.5rem;text-shadow:0 2px 10px rgba(212,175,55,0.3);">
+                رحلة الدرعية</div>
+            <div style="color:#c9a55a;font-size:1rem;margin-bottom:2rem;opacity:0.8;">جاري تحميل عالم الصحراء...</div>
+            <div
+                style="width:300px;height:8px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;position:relative;">
+                <div id="load-bar"
+                    style="width:0%;height:100%;background:linear-gradient(90deg,#D4AF37,#ffd700);border-radius:10px;transition:width 0.3s ease;">
+                </div>
+            </div>
+            <div id="load-pct" style="color:#D4AF37;font-size:0.9rem;margin-top:0.8rem;opacity:0.9;">0%</div>
+        </div>
+
+        <canvas id="horse-3d-canvas" style="display:block;"></canvas>
+    </div>
+
+    <!-- ================= THREE.JS SCRIPT ================= -->
+    <script>
+
+        // ========= 3D Horse Game - Ultra Realistic Desert World =========
+        const page = document.getElementById('horse-3d-page');
+        const canvas3d = document.getElementById('horse-3d-canvas');
+        canvas3d.width = window.innerWidth;
+        canvas3d.height = window.innerHeight;
+
+        const scene = new THREE.Scene();
+
+        // Realistic desert sky gradient
+        const skyCanvas = document.createElement('canvas');
+        skyCanvas.width = 2;
+        skyCanvas.height = 512;
+        const skyCtx = skyCanvas.getContext('2d');
+        const skyGrad = skyCtx.createLinearGradient(0, 0, 0, 512);
+        skyGrad.addColorStop(0, '#1a3a5c');
+        skyGrad.addColorStop(0.25, '#4a7fb5');
+        skyGrad.addColorStop(0.5, '#87CEEB');
+        skyGrad.addColorStop(0.7, '#ffd699');
+        skyGrad.addColorStop(0.85, '#ffb347');
+        skyGrad.addColorStop(1.0, '#e8a97e');
+        skyCtx.fillStyle = skyGrad;
+        skyCtx.fillRect(0, 0, 2, 512);
+        const skyTex = new THREE.CanvasTexture(skyCanvas);
+        scene.background = skyTex;
+        scene.fog = new THREE.FogExp2(0xebd0b0, 0.004); // Greatly increased fog to hide the lower view distance
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 5000);
+        camera.position.set(0, 15, 30);
+
+        let renderer;
+        try {
+            // Removed 'powerPreference: "high-performance"' as it strictly forces discrete GPUs on Mac which causes "Error creating WebGL context" when denied by battery/OS policies.
+            renderer = new THREE.WebGLRenderer({ canvas: canvas3d, antialias: false, alpha: false });
+        } catch (e) {
+            console.error("Failed to create WebGL context. Check Mac Chrome hardware acceleration settings.", e);
+            // Provide a graceful fallback element if WebGL fails entirely
+            document.getElementById('horse-loading').innerHTML = `
+                <div style="color:white;text-align:center;padding:2rem;">
+                    <h3>⚠️ خطأ في تشغيل الرسوميات ثلاثية الأبعاد</h3>
+                    <p>المتصفح الخاص بك لا يدعم WebGL أو أن تسريع الأجهزة (Hardware Acceleration) معطل.</p>
+                </div>
+            `;
+            throw e;
+        }
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(1.0); // Hard cap to 1.0 (no retina scaling) for performance
+        renderer.shadowMap.enabled = false; // Completely disable soft shadows to save laptop GPU
+        // renderer.shadowMap.type = THREE.BasicShadowMap; (not used since we disabled shadows)
+        renderer.toneMapping = THREE.NoToneMapping; // Disable expensive ACESFilmic Tone mapping
+        renderer.toneMappingExposure = 1.3;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        // Environment mapping turned off for massive performance gain.
+        scene.environment = null;
+
+        // ---- Realistic Desert Lighting ----
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0xd4a060, 0.4);
+        scene.add(hemiLight);
+
+        const ambient = new THREE.AmbientLight(0xffe8c8, 0.2);
+        scene.add(ambient);
+
+        const sunLight = new THREE.DirectionalLight(0xfff5e6, 2.5);
+        sunLight.position.set(200, 350, 200);
+        sunLight.castShadow = true;
+        sunLight.shadow.camera.left = -200;
+        sunLight.shadow.camera.right = 200;
+        sunLight.shadow.camera.top = 200;
+        sunLight.shadow.camera.bottom = -200;
+        sunLight.shadow.camera.near = 10;
+        sunLight.shadow.camera.far = 1000;
+        // Shadow maps disabled globally, properties left here just in case they are re-enabled
+        sunLight.shadow.mapSize.width = 512;
+        sunLight.shadow.mapSize.height = 512;
+        sunLight.shadow.bias = -0.001;
+        sunLight.shadow.normalBias = 0.02;
+        scene.add(sunLight);
+
+        // Sun sphere in sky
+        const sunGeo = new THREE.SphereGeometry(15, 32, 32);
+        const sunMat = new THREE.MeshBasicMaterial({ color: 0xffee88 });
+        const sunMesh = new THREE.Mesh(sunGeo, sunMat);
+        sunMesh.position.copy(sunLight.position).multiplyScalar(3);
+        scene.add(sunMesh);
+
+        // ---- Perlin Noise for Terrain ----
+        function noise2D(x, z) {
+            const n = Math.sin(x * 12.9898 + z * 78.233) * 43758.5453;
+            return (n - Math.floor(n)) * 2 - 1;
+        }
+        function smoothNoise(x, z) {
+            const ix = Math.floor(x), iz = Math.floor(z);
+            const fx = x - ix, fz = z - iz;
+            const sx = fx * fx * (3 - 2 * fx), sz = fz * fz * (3 - 2 * fz);
+            const n00 = noise2D(ix, iz), n10 = noise2D(ix + 1, iz);
+            const n01 = noise2D(ix, iz + 1), n11 = noise2D(ix + 1, iz + 1);
+            const nx0 = n00 + sx * (n10 - n00), nx1 = n01 + sx * (n11 - n01);
+            return nx0 + sz * (nx1 - nx0);
+        }
+        function fbm(x, z, octaves) {
+            let val = 0, amp = 1, freq = 1, max = 0;
+            for (let i = 0; i < octaves; i++) {
+                val += smoothNoise(x * freq, z * freq) * amp;
+                max += amp; amp *= 0.45; freq *= 2.1;
+            }
+            return val / max;
+        }
+        function getTerrainHeight(wx, wz) {
+            const bigDunes = fbm(wx * 0.005, wz * 0.005, 5) * 18;
+            const medDunes = fbm(wx * 0.02 + 50, wz * 0.02 + 50, 3) * 5;
+            const ripples = fbm(wx * 0.08, wz * 0.08, 2) * 1.2;
+            return bigDunes + medDunes + ripples;
+        }
+
+        // ---- Infinite Terrain Chunk System ----
+        const CHUNK_SIZE = 200;
+        const CHUNK_SEGMENTS = 80;
+        const VIEW_DIST = 2; // Reduced from 5 to 2 to slash render load from 121 chunks to 25 chunks!
+        const terrainChunks = new Map();
+        let chunksLoaded = 0;
+        const TOTAL_CHUNKS_NEEDED = (VIEW_DIST * 2 + 1) * (VIEW_DIST * 2 + 1);
+        const chunkLoadQueue = []; // Queue for async loading
+        const obstacles = [];
+
+        // Mobile Controls
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            document.getElementById('mobile-controls').style.display = 'block';
+            document.getElementById('minimap').style.bottom = '200px'; // Move minimap up
+        }
+
+        // Joystick logic
+        const joystickZone = document.getElementById('joystick-zone');
+        const joystickKnob = document.getElementById('joystick-knob');
+        let joystickActive = false;
+        let joyStartX = 0, joyStartY = 0;
+        let joyMoveX = 0, joyMoveY = 0;
+
+        joystickZone.addEventListener('touchstart', (e) => {
+            joystickActive = true;
+            const touch = e.touches[0];
+            const rect = joystickZone.getBoundingClientRect();
+            joyStartX = rect.left + rect.width / 2;
+            joyStartY = rect.top + rect.height / 2;
+            updateJoystick(touch.clientX, touch.clientY);
+        }, { passive: false });
+        joystickZone.addEventListener('touchmove', (e) => {
+            if (!joystickActive) return;
+            const touch = e.touches[0];
+            updateJoystick(touch.clientX, touch.clientY);
+        }, { passive: false });
+        joystickZone.addEventListener('touchend', () => {
+            joystickActive = false;
+            joyMoveX = 0; joyMoveY = 0;
+            joystickKnob.style.transform = `translate(0px, 0px)`;
+            keys.w = false; keys.s = false; keys.a = false; keys.d = false;
+        });
+
+        function updateJoystick(cx, cy) {
+            const maxDist = 35;
+            let dx = cx - joyStartX;
+            let dy = cy - joyStartY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > maxDist) {
+                dx = (dx / dist) * maxDist;
+                dy = (dy / dist) * maxDist;
+            }
+            joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
+
+            // Map to keys
+            keys.w = dy < -10;
+            keys.s = dy > 10;
+            keys.a = dx < -10;
+            keys.d = dx > 10;
+        }
+
+        const btnJump = document.getElementById('btn-jump');
+        const btnDash = document.getElementById('btn-dash');
+        const btnSprint = document.getElementById('btn-sprint');
+
+        btnJump.addEventListener('touchstart', (e) => { e.preventDefault(); keys[' '] = true; }, { passive: false });
+        btnJump.addEventListener('touchend', (e) => { e.preventDefault(); keys[' '] = false; }, { passive: false });
+
+        btnDash.addEventListener('touchstart', (e) => { e.preventDefault(); keys.q = true; }, { passive: false });
+        btnDash.addEventListener('touchend', (e) => { e.preventDefault(); keys.q = false; }, { passive: false });
+
+        btnSprint.addEventListener('touchstart', (e) => { e.preventDefault(); keys.shift = true; }, { passive: false });
+        btnSprint.addEventListener('touchend', (e) => { e.preventDefault(); keys.shift = false; }, { passive: false });
+
+        // Procedural Sand Texture Generation (More realistic)
+        function createSandTexture(isColorMap) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1024;
+            canvas.height = 1024;
+            const context = canvas.getContext('2d');
+
+            const imgData = context.createImageData(1024, 1024);
+            const data = imgData.data;
+
+            for (let i = 0; i < data.length; i += 4) {
+                // Mix of fine noise and some medium frequency noise
+                const x = (i / 4) % 1024;
+                const y = Math.floor((i / 4) / 1024);
+
+                const noiseFine = Math.random();
+                const noiseMed = (Math.sin(x * 0.1) * Math.cos(y * 0.1) + 1) * 0.5;
+
+                if (isColorMap) {
+                    // Base sand color variations
+                    const baseR = 210, baseG = 180, baseB = 140;
+                    const varR = baseR + (noiseFine * 20 - 10) + (noiseMed * 15 - 7.5);
+                    const varG = baseG + (noiseFine * 20 - 10) + (noiseMed * 15 - 7.5);
+                    const varB = baseB + (noiseFine * 20 - 10) + (noiseMed * 15 - 7.5);
+
+                    data[i] = Math.max(0, Math.min(255, varR));
+                    data[i + 1] = Math.max(0, Math.min(255, varG));
+                    data[i + 2] = Math.max(0, Math.min(255, varB));
+                } else {
+                    // Bump map
+                    const val = 128 + (noiseFine * 80) + (noiseMed * 40);
+                    data[i] = data[i + 1] = data[i + 2] = Math.max(0, Math.min(255, val));
+                }
+                data[i + 3] = 255;
+            }
+            context.putImageData(imgData, 0, 0);
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(60, 60); // Tile highly across the terrain
+            return tex;
+        }
+
+        const sandColorTex = createSandTexture(true);
+        sandColorTex.encoding = THREE.sRGBEncoding;
+        const sandBumpTex = createSandTexture(false);
+
+        // Basic Fast Sand Materials using MeshLambertMaterial for speed
+        const sandMat = new THREE.MeshLambertMaterial({
+            map: sandColorTex,
+            // roughness and metalness removed, bumpMap removed
+        });
+
+        const sandMat2 = new THREE.MeshLambertMaterial({
+            map: sandColorTex,
+        });
+
+        function createTerrainChunk(cx, cz) {
+            const key = cx + ',' + cz;
+            if (terrainChunks.has(key)) return;
+
+            // Halved terrain chunk segments (16 instead of probably 32)
+            const CHUNK_SEGMENTS_LOW = Math.max(8, Math.floor(CHUNK_SEGMENTS / 2));
+            const geo = new THREE.PlaneGeometry(CHUNK_SIZE, CHUNK_SIZE, CHUNK_SEGMENTS_LOW, CHUNK_SEGMENTS_LOW);
+            const pos = geo.attributes.position;
+            const colors = new Float32Array(pos.count * 3);
+
+            for (let i = 0; i < pos.count; i++) {
+                const lx = pos.getX(i), lz = pos.getY(i);
+                const wx = lx + cx * CHUNK_SIZE, wz = cz * CHUNK_SIZE - lz;
+                const h = getTerrainHeight(wx, wz);
+                pos.setZ(i, h);
+                // Color variation based on height
+                const t = (h + 20) / 40;
+                const r = 0.75 + t * 0.12 + (Math.random() - 0.5) * 0.04;
+                const g = 0.62 + t * 0.08 + (Math.random() - 0.5) * 0.03;
+                const b = 0.32 + t * 0.05 + (Math.random() - 0.5) * 0.02;
+                colors[i * 3] = r; colors[i * 3 + 1] = g; colors[i * 3 + 2] = b;
+            }
+            geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geo.computeVertexNormals();
+
+            const mat = new THREE.MeshLambertMaterial({
+                vertexColors: true,
+                map: sandColorTex,
+                // Removed bump map and PBR calculations for terrain
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.rotation.x = -Math.PI / 2;
+            mesh.position.set(cx * CHUNK_SIZE, 0, cz * CHUNK_SIZE);
+            mesh.receiveShadow = true;
+            scene.add(mesh);
+            const chunkData = { mesh, cx, cz };
+
+            // Populate chunk with scenery
+            populateChunk(cx, cz, chunkData);
+            terrainChunks.set(key, chunkData);
+            chunksLoaded++;
+        }
+
+        function removeTerrainChunk(key) {
+            const chunk = terrainChunks.get(key);
+            if (!chunk) return;
+            scene.remove(chunk.mesh);
+            chunk.mesh.geometry.dispose();
+            chunk.mesh.material.dispose();
+            if (chunk.objects) chunk.objects.forEach(o => {
+                scene.remove(o);
+                // Remove from obstacles
+                const idx = obstacles.findIndex(ob => ob.mesh === o);
+                if (idx >= 0) obstacles.splice(idx, 1);
+            });
+            terrainChunks.delete(key);
+        }
+
+        // ---- Desert Scenery Generators ----
+        const rockGeoPool = new THREE.DodecahedronGeometry(1, 0); // Shared pool geometry
+        const baseRockMat = new THREE.MeshLambertMaterial({ color: 0x5a4a3a }); // Shared material
+
+        function createRock(scale) {
+            // No longer allocating new geometries/materials per rock
+            const mesh = new THREE.Mesh(rockGeoPool, baseRockMat);
+            // Randomize appearance via scale and rotation only to save memory
+            mesh.scale.set(scale, scale * (0.5 + Math.random() * 0.6), scale);
+            mesh.rotation.set(Math.random() * 0.5, Math.random() * Math.PI * 2, Math.random() * 0.3);
+            return mesh;
+        }
+
+        function createPalmTree(height) {
+            const tree = new THREE.Group();
+            // Curved trunk segments
+            const trunkPts = [];
+            const segs = 8;
+            const curve = (Math.random() - 0.5) * 2;
+            for (let i = 0; i <= segs; i++) {
+                const t = i / segs;
+                const cx2 = Math.sin(t * Math.PI * 0.5) * curve;
+                trunkPts.push(new THREE.Vector3(cx2, t * height, 0));
+            }
+            const trunkCurve = new THREE.CatmullRomCurve3(trunkPts);
+            const trunkGeo = new THREE.TubeGeometry(trunkCurve, 12, 0.35, 8, false);
+            const trunkMat = new THREE.MeshLambertMaterial({
+                color: 0x6b4226
+            });
+            const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+            tree.add(trunk);
+
+            // Coconuts
+            for (let c = 0; c < 3; c++) {
+                const coconut = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.25, 8, 8),
+                    new THREE.MeshLambertMaterial({ color: 0x5c3a1e })
+                );
+                const topPt = trunkCurve.getPoint(0.95);
+                coconut.position.set(
+                    topPt.x + (Math.random() - 0.5) * 0.8,
+                    topPt.y - 0.3 - Math.random() * 0.5,
+                    (Math.random() - 0.5) * 0.8
+                );
+                tree.add(coconut);
+            }
+
+            // Palm fronds
+            const frondCount = 7 + Math.floor(Math.random() * 4);
+            const topPoint = trunkCurve.getPoint(1.0);
+            for (let f = 0; f < frondCount; f++) {
+                const angle = (f / frondCount) * Math.PI * 2 + Math.random() * 0.3;
+                const frondLen = 3 + Math.random() * 2;
+                const droop = 0.3 + Math.random() * 0.4;
+                const frondPts = [];
+                for (let p = 0; p <= 6; p++) {
+                    const ft = p / 6;
+                    frondPts.push(new THREE.Vector3(
+                        Math.cos(angle) * ft * frondLen,
+                        -ft * ft * droop * frondLen + 0.5,
+                        Math.sin(angle) * ft * frondLen
+                    ));
+                }
+                const frondCurve = new THREE.CatmullRomCurve3(frondPts);
+                const frondGeo = new THREE.TubeGeometry(frondCurve, 8, 0.15 - 0 * 0.1, 4, false);
+                const green = new THREE.Color().setHSL(0.28 + Math.random() * 0.06, 0.6, 0.25 + Math.random() * 0.1);
+                // Realistic leaves: slight subsurface scattering effect using roughness/metalness adjustments
+                const frondMat = new THREE.MeshLambertMaterial({
+                    color: green,
+                    side: THREE.DoubleSide
+                });
+                const frond = new THREE.Mesh(frondGeo, frondMat);
+                frond.position.copy(topPoint);
+                tree.add(frond);
+
+                // Leaf blades along frond
+                for (let lb = 1; lb <= 4; lb++) {
+                    const lt = lb / 5;
+                    const bp = frondCurve.getPoint(lt);
+                    const leafGeo = new THREE.PlaneGeometry(0.6 + Math.random() * 0.4, 1.5 + Math.random());
+                    const leaf = new THREE.Mesh(leafGeo, frondMat);
+                    leaf.position.set(bp.x + topPoint.x, bp.y + topPoint.y, bp.z + topPoint.z);
+                    leaf.rotation.set(Math.random(), angle + Math.PI * 0.5, droop * lt);
+                    tree.add(leaf);
+                }
+            }
+            return tree;
+        }
+
+        // Procedural Cactus Texture (Stripes/Ribs)
+        function createCactusTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64; // Smaller texture
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, 64, 64);
+
+            // Draw vertical ribs (bump)
+            for (let i = 0; i < 64; i += 8) {
+                const grad = ctx.createLinearGradient(i, 0, i + 8, 0);
+                grad.addColorStop(0, "#444444");
+                grad.addColorStop(0.5, "#ffffff");
+                grad.addColorStop(1, "#444444");
+                ctx.fillStyle = grad;
+                ctx.fillRect(i, 0, 8, 64);
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(1, 1);
+            return tex;
+        }
+        const cactusBumpMap = createCactusTexture();
+
+        const cactusMat = new THREE.MeshLambertMaterial({
+            color: 0x4a7a3a,
+            // Removed bump map, roughness, metalness for speed
+        });
+        const cactusSpikeMat = new THREE.MeshLambertMaterial({ color: 0xddccaa });
+
+        function addSpikesToCactus(mesh, radius, height) {
+            // Replaced heavy cone geometry spikes with tiny boxes for better perf
+            const spikeGeo = new THREE.BoxGeometry(0.04, 0.04, 0.04);
+
+            for (let y = -height / 2 + 0.2; y < height / 2 - 0.2; y += 0.5) { // Less vertical density
+                for (let a = 0; a < Math.PI * 2; a += Math.PI / 2) { // Less radial density
+                    if (Math.random() > 0.5) {
+                        const spike = new THREE.Mesh(spikeGeo, cactusSpikeMat);
+                        // Position on surface
+                        spike.position.set(Math.cos(a) * radius, y, Math.sin(a) * radius);
+                        // Rotate to face outwards
+                        spike.rotation.y = -a;
+                        // Spikes no longer cast shadow for huge perf gain
+                        mesh.add(spike);
+                    }
+                }
+            }
+        }
+
+        function createCactus(h) {
+            const cactus = new THREE.Group();
+
+            // Main body
+            const bodyRadius = 0.4 + Math.random() * 0.2;
+            const bodyGeo = new THREE.CylinderGeometry(bodyRadius * 0.8, bodyRadius, h, 8); // Lowered from 16
+            const body = new THREE.Mesh(bodyGeo, cactusMat);
+            body.position.y = h / 2;
+            addSpikesToCactus(body, bodyRadius, h);
+            cactus.add(body);
+
+            // Arms
+            if (Math.random() > 0.3) {
+                const armH = h * 0.4;
+                const armRad = bodyRadius * 0.7;
+                const armGeo = new THREE.CylinderGeometry(armRad * 0.8, armRad, armH, 6);
+                const arm = new THREE.Mesh(armGeo, cactusMat);
+                arm.position.set(bodyRadius + 0.2, h * 0.55, 0);
+                arm.rotation.z = -Math.PI * 0.35;
+                addSpikesToCactus(arm, armRad, armH);
+                cactus.add(arm);
+            }
+            if (Math.random() > 0.4) {
+                const armH = h * 0.35;
+                const armRad = bodyRadius * 0.6;
+                const armGeo = new THREE.CylinderGeometry(armRad * 0.8, armRad, armH, 6);
+                const arm = new THREE.Mesh(armGeo, cactusMat);
+                arm.position.set(-bodyRadius - 0.2, h * 0.45, 0);
+                arm.rotation.z = Math.PI * 0.3;
+                addSpikesToCactus(arm, armRad, armH);
+                cactus.add(arm);
+            }
+            return cactus;
+        }
+
+        // Cache pools to prevent hundreds of heavy geometries being generated per frame when moving fast
+        const treePool = [];
+        for (let i = 0; i < 3; i++) treePool.push(createPalmTree(20)); // Base height 20
+
+        const cactusPool = [];
+        for (let i = 0; i < 3; i++) cactusPool.push(createCactus(5)); // Base height 5
+
+        function populateChunk(cx, cz, chunkData) {
+            chunkData.objects = [];
+            const seed = cx * 7919 + cz * 104729;
+            const rng = () => { const s = Math.sin(seed + chunkData.objects.length * 999) * 43758.5453; return s - Math.floor(s); };
+
+            // Skip center chunk to keep spawn area clear
+            if (Math.abs(cx) < 1 && Math.abs(cz) < 1) return;
+
+            // Rocks
+            const rockCount = 3 + Math.floor(rng() * 5);
+            for (let i = 0; i < rockCount; i++) {
+                const rx = cx * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.9;
+                const rz = cz * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.9;
+                const size = 1.5 + rng() * 4;
+                const rock = createRock(size);
+                const ry = getTerrainHeight(rx, rz);
+                rock.position.set(rx, ry + size * 0.2, rz);
+                scene.add(rock);
+                chunkData.objects.push(rock);
+                obstacles.push({ mesh: rock, radius: size * 1.3 });
+            }
+
+            // Palm trees (Larger)
+            const treeCount = Math.floor(rng() * 20);
+            for (let i = 0; i < treeCount; i++) {
+                const tx = cx * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.8;
+                const tz = cz * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.8;
+                const hScale = (15 + rng() * 10) / 20.0;
+
+                const baseTree = treePool[Math.floor(rng() * treePool.length)];
+                const tree = baseTree.clone();
+                tree.scale.set(hScale, hScale, hScale); // Uniform scaling
+
+                const ty = getTerrainHeight(tx, tz);
+                tree.position.set(tx, ty, tz);
+                tree.rotation.y = rng() * Math.PI * 2;
+                scene.add(tree);
+                chunkData.objects.push(tree);
+                obstacles.push({ mesh: tree, radius: 3.5 }); // increased obstacle radius
+            }
+
+            // Cacti (More frequent and slightly larger)
+            const cactusCount = Math.floor(rng() * 10); // Up to 3 cacti per chunk instead of 1
+            for (let i = 0; i < cactusCount; i++) {
+                const ccx = cx * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.7;
+                const ccz = cz * CHUNK_SIZE + (rng() - 0.5) * CHUNK_SIZE * 0.7;
+                const hScale = (3 + rng() * 4) / 5.0;
+
+                const baseCactus = cactusPool[Math.floor(rng() * cactusPool.length)];
+                const cactus = baseCactus.clone();
+                cactus.scale.set(hScale, hScale, hScale);
+
+                cactus.position.set(ccx, getTerrainHeight(ccx, ccz), ccz);
+                cactus.rotation.y = rng() * Math.PI * 2;
+                scene.add(cactus);
+                chunkData.objects.push(cactus);
+                obstacles.push({ mesh: cactus, radius: 2.0 });
+            }
+        }
+
+        function updateTerrain(px, pz) {
+            const pcx = Math.round(px / CHUNK_SIZE), pcz = Math.round(pz / CHUNK_SIZE);
+            // Queue needed chunks
+            for (let dx = -VIEW_DIST; dx <= VIEW_DIST; dx++) {
+                for (let dz = -VIEW_DIST; dz <= VIEW_DIST; dz++) {
+                    const cx = pcx + dx, cz = pcz + dz;
+                    const key = cx + ',' + cz;
+                    if (!terrainChunks.has(key)) {
+                        // Check if already in queue
+                        let inQueue = false;
+                        for (let q of chunkLoadQueue) if (q.cx === cx && q.cz === cz) inQueue = true;
+                        if (!inQueue) chunkLoadQueue.push({ cx, cz });
+                    }
+                }
+            }
+            // Remove far chunks
+            for (const [key, chunk] of terrainChunks) {
+                if (Math.abs(chunk.cx - pcx) > VIEW_DIST + 1 || Math.abs(chunk.cz - pcz) > VIEW_DIST + 1) {
+                    removeTerrainChunk(key);
+                }
+            }
+            // Update shadow camera
+            sunLight.position.set(px + 100, 350, pz + 100);
+            sunLight.target.position.set(px, 0, pz);
+            sunLight.target.updateMatrixWorld();
+        }
+        scene.add(sunLight.target);
+
+        // Initial terrain
+        updateTerrain(0, 0);
+
+        // ---- Dust Particle System Removed ----
+
+        // Hoof dust (kicked up when moving)
+        const hoofDustCount = 400;
+        const hoofDustGeo = new THREE.BufferGeometry();
+        const hoofPos = new Float32Array(hoofDustCount * 3);
+        const hoofVel = new Float32Array(hoofDustCount * 3);
+        const hoofLife = new Float32Array(hoofDustCount);
+        for (let i = 0; i < hoofDustCount; i++) hoofLife[i] = -1;
+        hoofDustGeo.setAttribute('position', new THREE.BufferAttribute(hoofPos, 3));
+
+        // Realistic dust sprite texture
+        const dustCanvas = document.createElement('canvas');
+        dustCanvas.width = 32; dustCanvas.height = 32;
+        const dCtx = dustCanvas.getContext('2d');
+        const grad = dCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+        grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        grad.addColorStop(0.4, 'rgba(255, 255, 255, 0.4)');
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        dCtx.fillStyle = grad;
+        dCtx.fillRect(0, 0, 32, 32);
+        const dustSpriteTex = new THREE.CanvasTexture(dustCanvas);
+
+        const hoofDustMat = new THREE.PointsMaterial({
+            color: 0xe8cf9c,
+            size: 8.0,
+            map: dustSpriteTex,
+            transparent: true,
+            opacity: 0.6,
+            depthWrite: false,
+            blending: THREE.NormalBlending
+        });
+        const hoofDust = new THREE.Points(hoofDustGeo, hoofDustMat);
+        scene.add(hoofDust);
+        let hoofDustIdx = 0;
+
+        // ---- Horse + Rider (Detailed) ----
+        const horseGroup = new THREE.Group();
+        // horseGroup.scale.set(2, 2, 2); // Reverted group scale
+        horseGroup.position.y = getTerrainHeight(0, 0) + 2.5; // Offset to start ABOVE sand
+        scene.add(horseGroup);
+
+        // Load GLB Model
+        let mixer;
+        const loader = new THREE.GLTFLoader();
+
+        loader.load('./horse.glb', function (gltf) {
+            const model = gltf.scene;
+            // Adjust scale as needed - assuming standard units
+            model.scale.set(5.0, 5.0, 5.0); // Increased horse size to 5x
+            model.rotation.y = Math.PI; // Face forward if needed (usually GLTF models face +Z, we need -Z?)
+
+            model.traverse(function (object) {
+                if (object.isMesh) {
+                    object.castShadow = false; // Disabled for performance
+                    object.receiveShadow = false; // Disabled for performance
+                    if (object.material) {
+                        // Switch to basic Lambert material if possible to save shading time
+                        const map = object.material.map;
+                        const col = object.material.color;
+                        object.material = new THREE.MeshLambertMaterial({
+                            map: map,
+                            color: col
+                        });
+                    }
+                }
+            });
+            horseGroup.add(model);
+
+            // Animations
+            if (gltf.animations && gltf.animations.length > 0) {
+                mixer = new THREE.AnimationMixer(model);
+                // Play all animations or specific ones?
+                // Try to find 'Run' or 'Gallop'
+                let runClip = gltf.animations.find(a => a.name.toLowerCase().includes('run') || a.name.toLowerCase().includes('gallop'));
+                if (!runClip) runClip = gltf.animations[0]; // Fallback
+
+                const action = mixer.clipAction(runClip);
+                action.play();
+                // Store action for speed modulation if needed
+            }
+        }, undefined, function (e) {
+            console.error(e);
+        });
+
+
+        // ---- Saudi Rider ----
+        const rider = new THREE.Group();
+
+        // Head
+        const rHeadMat = new THREE.MeshLambertMaterial({ color: 0xc68642 }); // Switched to Lambert
+        const rHead = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 10), rHeadMat);
+        rHead.position.set(0, 5.8, 0);
+        rHead.castShadow = true;
+        rider.add(rHead);
+
+        // Shemagh (white head cloth draped)
+        const sheGeo = new THREE.SphereGeometry(0.55, 10, 6);
+        sheGeo.scale(1.1, 0.7, 1.1);
+        const sheMat = new THREE.MeshStandardMaterial({ color: 0xf5f0e8, roughness: 0.7 });
+        const shemagh = new THREE.Mesh(sheGeo, sheMat);
+        shemagh.position.set(0, 6.15, 0);
+        rider.add(shemagh);
+
+        // Shemagh drape sides
+        const drapGeo = new THREE.PlaneGeometry(0.4, 1.0);
+        const drapeL = new THREE.Mesh(drapGeo, sheMat);
+        drapeL.position.set(-0.5, 5.6, 0.1);
+        drapeL.rotation.set(0, 0, 0.3);
+        rider.add(drapeL);
+        const drapeR = new THREE.Mesh(drapGeo, sheMat);
+        drapeR.position.set(0.5, 5.6, 0.1);
+        drapeR.rotation.set(0, 0, -0.3);
+        rider.add(drapeR);
+
+        // Agal (black rope)
+        const agalGeo = new THREE.TorusGeometry(0.48, 0.06, 8, 20);
+        const agalMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, roughness: 0.4, metalness: 0.3 });
+        const agal = new THREE.Mesh(agalGeo, agalMat);
+        agal.position.set(0, 6.25, 0);
+        agal.rotation.x = Math.PI / 2;
+        rider.add(agal);
+
+        // Generate Cloth Folds Texture
+        function createClothTexture(isBisht) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 128;
+            canvas.height = 128;
+            const ctx = canvas.getContext('2d');
+
+            // Base white
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0, 0, 128, 128);
+
+            // Draw soft vertical waves for folds
+            for (let x = 0; x < 128; x++) {
+                const wave = Math.sin((x / 128) * Math.PI * (isBisht ? 4 : 8)) * 0.5 + 0.5;
+                const c = Math.floor(wave * 255);
+                ctx.fillStyle = `rgb(${c},${c},${c})`;
+                ctx.fillRect(x, 0, 1, 128);
+            }
+
+            const tex = new THREE.CanvasTexture(canvas);
+            tex.wrapS = THREE.RepeatWrapping;
+            tex.wrapT = THREE.RepeatWrapping;
+            tex.repeat.set(1, 1);
+            return tex;
+        }
+
+        const thobeBump = createClothTexture(false);
+        const bishtBump = createClothTexture(true);
+
+        // Thobe (body)
+        const thobeGeo = new THREE.CylinderGeometry(0.45, 0.55, 2.2, 10);
+        const thobeMat = new THREE.MeshStandardMaterial({
+            color: 0xf8f4ec,
+            roughness: 0.8,
+            bumpMap: thobeBump,
+            bumpScale: 0.05
+        });
+        const thobe = new THREE.Mesh(thobeGeo, thobeMat);
+        thobe.position.set(0, 4.3, 0);
+        thobe.castShadow = true;
+        rider.add(thobe);
+
+        // Bisht (cloak - dark brown with gold trim)
+        const bishtGeo = new THREE.CylinderGeometry(0.52, 0.62, 2.3, 16, 1, true); // Increased segments for smoother folds
+        const bishtMat = new THREE.MeshStandardMaterial({
+            color: 0x3a2a18,
+            roughness: 0.85,
+            side: THREE.DoubleSide,
+            bumpMap: bishtBump,
+            bumpScale: 0.08
+        });
+        const bisht = new THREE.Mesh(bishtGeo, bishtMat);
+        bisht.position.set(0, 4.3, 0);
+        bisht.rotation.y = Math.PI;
+        rider.add(bisht);
+
+        // Arms holding reins
+        const armGeo = new THREE.CylinderGeometry(0.1, 0.12, 1.2, 6);
+        const armMat = new THREE.MeshStandardMaterial({ color: 0xf0ece4 });
+        const armL = new THREE.Mesh(armGeo, armMat);
+        armL.position.set(-0.55, 4.0, -0.5);
+        armL.rotation.set(0.8, 0, 0.3);
+        rider.add(armL);
+        const armR = armL.clone();
+        armR.position.x = 0.55;
+        armR.rotation.z = -0.3;
+        rider.add(armR);
+
+        // Hands
+        const handGeo = new THREE.SphereGeometry(0.1, 6, 6);
+        const handMat = new THREE.MeshStandardMaterial({ color: 0xc68642 });
+        const handL = new THREE.Mesh(handGeo, handMat);
+        handL.position.set(-0.35, 3.5, -1.0);
+        rider.add(handL);
+        const handR = handL.clone();
+        handR.position.x = 0.35;
+        rider.add(handR);
+
+        // Rider legs (straddling)
+        const rLegGeo = new THREE.CylinderGeometry(0.15, 0.12, 1.0, 6);
+        const rLegL = new THREE.Mesh(rLegGeo, thobeMat);
+        rLegL.position.set(-0.6, 3.0, 0);
+        rLegL.rotation.z = 0.25;
+        rider.add(rLegL);
+        const rLegR = rLegL.clone();
+        rLegR.position.x = 0.6;
+        rLegR.rotation.z = -0.25;
+        rider.add(rLegR);
+
+        horseGroup.add(rider);
+        rider.position.y = -1.2; // Lowered significantly again to fix floating (Legs at ~1.8)
+        // horseGroup.position.y = 0;
+
+        // ---- Collectible Info Items (Spawn around player) ----
+        const infoTexts = [
+            "تأسست الدولة السعودية الأولى عام 1727م",
+            "مؤسس الدولة السعودية الأولى هو الإمام محمد بن سعود",
+            "كانت الدرعية عاصمة الدولة السعودية الأولى",
+            "انطلقت الدولة من الدرعية في قلب نجد",
+            "يوم التأسيس يوافق 22 فبراير من كل عام",
+            "يختلف يوم التأسيس عن اليوم الوطني السعودي",
+            "يوم التأسيس يحتفي بتاريخ 300 عام",
+            "شعار يوم التأسيس هو يوم بدينا",
+            "الخيل العربية رمز الشجاعة والأصالة",
+            "النخلة رمز الكرم والعطاء والخير",
+            "المجلس يرمز للوحدة والتلاحم",
+            "السوق يعكس النشاط الاقتصادي التاريخي",
+            "أعيد تأسيس الدولة الثانية عام 1824م",
+            "بدأت الدولة السعودية الثالثة عام 1902م",
+            "توحدت المملكة رسميًا عام 1932م",
+            "امتد نفوذ الدولة الأولى لمعظم الجزيرة العربية",
+            "شهدت الدرعية نهضة علمية وثقافية",
+            "اعتمدت الدولة على الوحدة والاستقرار",
+            "استمرت الدولة الأولى حتى عام 1818م",
+            "كانت الدرعية مركزًا تجاريًا مهمًا",
+            "لعب موقع الدرعية دورًا في قوة الدولة",
+            "اعتمدت الدولة نظامًا إداريًا منظمًا",
+            "شهدت الدولة توسعًا سياسيًا ملحوظًا",
+            "رسخت الدولة مفاهيم الاستقرار والأمن",
+            "يعكس يوم التأسيس الاعتزاز بالإرث الثقافي",
+            "تقام فعاليات تراثية في يوم التأسيس",
+            "تضاء المعالم الوطنية احتفالًا بالمناسبة",
+            "ترتدي العائلات الأزياء التراثية",
+            "يركز اليوم على عمق التاريخ السعودي",
+            "يمثل التأسيس بداية مشروع دولة ممتد",
+            "شهدت الدرعية نشاطًا علميًا بارزًا",
+            "يعبر اليوم عن استمرارية الدولة",
+            "يبرز الاحتفال أهمية الوحدة الوطنية",
+            "يعكس قوة الإرادة السياسية المبكرة",
+            "شكلت التحالفات عنصرًا مهمًا في البناء",
+            "أسهم الاستقرار في ازدهار الاقتصاد",
+            "يرمز اليوم للأصالة والجذور الراسخة",
+            "يعزز الاحتفال الفخر بالهوية الوطنية",
+            "يمثل نقطة انطلاق لمسيرة طويلة",
+            "يعكس رؤية استراتيجية لبناء دولة قوية",
+            "يجسد قصة صمود تاريخية عظيمة",
+            "يؤكد أن تاريخ المملكة يمتد لأكثر من 300 عام",
+            "الدرعية موقع تراث عالمي لليونسكو",
+            "تعد الدرعية رمزًا للدولة السعودية",
+            "يحتفل بيوم التأسيس في جميع مناطق المملكة",
+            "العلم السعودي رمز السيادة والوحدة",
+            "صدر الأمر الملكي بيوم التأسيس عام 2022م",
+            "أعلن يوم التأسيس إجازة رسمية",
+            "يعزز اليوم روح الانتماء الوطني",
+            "يسلط الضوء على ثلاثة قرون من التاريخ"
+        ];
+
+        const collectibles = [];
+        const collectibleMat = new THREE.MeshLambertMaterial({
+            color: 0xD4AF37, emissive: 0xD4AF37, emissiveIntensity: 0.6
+        });
+        const collectibleRingMat = new THREE.MeshLambertMaterial({
+            color: 0xffd700, emissive: 0xaa8800, emissiveIntensity: 0.4
+        });
+        const orbGeoPool = new THREE.SphereGeometry(0.8, 12, 12);
+        const ringGeoPool = new THREE.TorusGeometry(1.2, 0.08, 6, 16);
+
+        // Shared geometry/material for collectible marker arrows
+        const markerConeGeo = new THREE.ConeGeometry(1.2, 3.0, 6);
+        const markerShaftGeo = new THREE.CylinderGeometry(0.25, 0.25, 3.0, 4);
+        const markerMat = new THREE.MeshLambertMaterial({
+            color: 0xff4444, emissive: 0xff2222, emissiveIntensity: 0.6,
+            transparent: true, opacity: 0.95
+        });
+
+        function spawnCollectible(idx) {
+            const group = new THREE.Group();
+
+            // Glowing orb (pooled)
+            const orb = new THREE.Mesh(orbGeoPool, collectibleMat);
+            group.add(orb);
+
+            // Ring around orb (pooled)
+            const ring = new THREE.Mesh(ringGeoPool, collectibleRingMat);
+            ring.rotation.x = Math.PI / 2;
+            group.add(ring);
+
+            // ---- Marker Arrow pointing DOWN above the orb ----
+            const marker = new THREE.Group();
+            // Arrow cone (pointing downward)
+            const cone = new THREE.Mesh(markerConeGeo, markerMat);
+            cone.rotation.x = Math.PI; // Flip to point down
+            cone.position.y = 0;
+            marker.add(cone);
+            // Arrow shaft
+            const shaft = new THREE.Mesh(markerShaftGeo, markerMat);
+            shaft.position.y = 3.0;
+            marker.add(shaft);
+            marker.position.y = 5.0; // Float higher above the orb
+            group.add(marker);
+
+            // Position in a spiral pattern around origin, getting further out
+            const angle = (idx / 50) * Math.PI * 2 * 3;
+            const radius = 60 + idx * 8 + Math.random() * 40;
+            const wx = Math.cos(angle) * radius;
+            const wz = Math.sin(angle) * radius;
+            const wy = getTerrainHeight(wx, wz) + 3;
+            group.position.set(wx, wy, wz);
+
+            // Removed PointLight to save massive amounts of GPU rendering time
+
+            scene.add(group);
+            collectibles.push({
+                mesh: group, collected: false, info: infoTexts[idx],
+                rotSpeed: 0.015 + Math.random() * 0.01, ring: ring,
+                marker: marker, // Store marker reference for animation
+                baseY: wy // Store base height to avoid recalculation
+            });
+        }
+
+        for (let i = 0; i < 50; i++) spawnCollectible(i);
+
+        // ---- Direction Arrow (points to nearest collectible) ----
+        const arrowGroup = new THREE.Group();
+        // Cone (arrowhead)
+        const arrowHeadGeo = new THREE.ConeGeometry(0.6, 1.8, 8);
+        const arrowMat = new THREE.MeshLambertMaterial({
+            color: 0xD4AF37, emissive: 0xD4AF37, emissiveIntensity: 0.5,
+            transparent: true, opacity: 0.9
+        });
+        const arrowHead = new THREE.Mesh(arrowHeadGeo, arrowMat);
+        arrowHead.rotation.x = Math.PI / 2; // Point forward (+Z)
+        arrowHead.position.z = 1.5;
+        arrowGroup.add(arrowHead);
+        // Shaft (cylinder)
+        const arrowShaftGeo = new THREE.CylinderGeometry(0.15, 0.15, 1.5, 6);
+        const arrowShaft = new THREE.Mesh(arrowShaftGeo, arrowMat);
+        arrowShaft.rotation.x = Math.PI / 2;
+        arrowShaft.position.z = -0.1;
+        arrowGroup.add(arrowShaft);
+        // Outer ring glow
+        const arrowRingGeo = new THREE.TorusGeometry(1.0, 0.06, 8, 24);
+        const arrowRingMat = new THREE.MeshLambertMaterial({
+            color: 0xffd700, emissive: 0xffd700, emissiveIntensity: 0.4,
+            transparent: true, opacity: 0.6
+        });
+        const arrowRing = new THREE.Mesh(arrowRingGeo, arrowRingMat);
+        arrowRing.rotation.x = Math.PI / 2;
+        arrowGroup.add(arrowRing);
+        scene.add(arrowGroup);
+
+        function findNearestCollectible() {
+            let nearest = null;
+            let minDist = Infinity;
+            for (const c of collectibles) {
+                if (c.collected) continue;
+                const dx = horseGroup.position.x - c.mesh.position.x;
+                const dz = horseGroup.position.z - c.mesh.position.z;
+                const dist = dx * dx + dz * dz;
+                if (dist < minDist) {
+                    minDist = dist;
+                    nearest = c;
+                }
+            }
+            return nearest;
+        }
+
+        // ---- Controls ----
+        const keys = {
+            w: false, a: false, s: false, d: false,
+            ArrowUp: false, ArrowLeft: false, ArrowDown: false, ArrowRight: false,
+            ' ': false, shift: false, q: false
+        };
+
+        document.addEventListener('keydown', e => {
+            const k = e.key.toLowerCase();
+            if (keys.hasOwnProperty(k)) keys[k] = true;
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = true;
+            if (e.shiftKey) keys.shift = true;
+        });
+        document.addEventListener('keyup', e => {
+            const k = e.key.toLowerCase();
+            if (keys.hasOwnProperty(k)) keys[k] = false;
+            if (keys.hasOwnProperty(e.key)) keys[e.key] = false;
+            if (!e.shiftKey) keys.shift = false;
+        });
+
+        // ---- Physics Variables ----
+        let velocity = 0, velocityY = 0, driftAngle = 0;
+        let isMobileDevice = window.innerWidth <= 768;
+        let pMultiplier = isMobileDevice ? 0.6 : 1.0; // Throttle speed for mobile
+
+        const normalSpeed = 1.2 * pMultiplier, sprintSpeed = 4.5 * pMultiplier;
+        const dashSpeed = 9.0 * pMultiplier, acceleration = 0.5 * pMultiplier, deceleration = 1.0 * pMultiplier;
+        const rotationSpeed = 0.08 * pMultiplier, driftSpeed = 0.15 * pMultiplier;
+        const jumpPower = 2.0, gravity = 0.10
+            ; // Snappier jumping
+        let isGrounded = true, isDashing = false, dashCooldown = 2;
+        let collectedCount = 0;
+        let frameCount = 0;
+
+        function checkCollision(newX, newZ) {
+            for (const ob of obstacles) {
+                const dx = newX - ob.mesh.position.x;
+                const dz = newZ - ob.mesh.position.z;
+                if (dx * dx + dz * dz < (ob.radius + 2) * (ob.radius + 2)) return true;
+            }
+            return false;
+        }
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // ---- Main Animation Loop ----
+        const clock = new THREE.Clock();
+
+        function animate(timestamp) {
+            requestAnimationFrame(animate);
+
+            // Cap dt to prevent physics tunneling
+            let dt = clock.getDelta();
+            if (dt > 0.1) dt = 0.1;
+            const dtRatio = dt * 60.0; // 1.0 at 60fps, 0.5 at 120fps, 2.0 at 30fps
+
+            // Loading phase - process queue
+            if (!gameReady) {
+                // Initialize queue if empty
+                if (chunksLoaded === 0 && chunkLoadQueue.length === 0) updateTerrain(horseGroup.position.x, horseGroup.position.z);
+
+                // Process up to 5 chunks per frame
+                let processCount = 0;
+                while (chunkLoadQueue.length > 0 && processCount < 5) {
+                    const c = chunkLoadQueue.shift();
+                    createTerrainChunk(c.cx, c.cz);
+                    processCount++;
+                }
+
+                checkLoading(); // Update UI
+                renderer.render(scene, camera);
+                return;
+            }
+
+            // Normal game loop
+            // Process queue slowly (1 per frame) to avoid stutter
+            if (chunkLoadQueue.length > 0) {
+                const c = chunkLoadQueue.shift();
+                createTerrainChunk(c.cx, c.cz);
+            }
+
+            // If game is ready, only proceed with game logic if the game page is active
+            if (!page.classList.contains('active')) return;
+
+            const time = clock.getElapsedTime();
+            frameCount++;
+
+            // Movement input
+            const fwd = keys.w || keys.ArrowUp;
+            const bwd = keys.s || keys.ArrowDown;
+            const left = keys.a || keys.ArrowLeft;
+            const right = keys.d || keys.ArrowRight;
+            const sprint = keys.shift;
+            const dashBtn = keys.q;
+
+            // Dash
+            if (dashBtn && dashCooldown <= 0 && !isDashing) {
+                isDashing = true;
+                velocity = dashSpeed;
+                dashCooldown = 120;
+                setTimeout(() => { isDashing = false; }, 400);
+            }
+            if (dashCooldown > 0) dashCooldown -= dtRatio;
+
+            const maxSpd = sprint ? sprintSpeed : normalSpeed;
+
+            if (fwd && !isDashing) velocity = Math.min(velocity + acceleration * dtRatio, maxSpd);
+            else if (bwd && !isDashing) velocity = Math.max(velocity - acceleration * dtRatio, -maxSpd * 0.4);
+            else if (!isDashing) {
+                if (velocity > 0) velocity = Math.max(0, velocity - deceleration * dtRatio);
+                else velocity = Math.min(0, velocity + deceleration * dtRatio);
+            } else velocity *= Math.pow(0.96, dtRatio);
+
+            // Turning with drift
+            if ((left || right) && Math.abs(velocity) > 0.05) {
+                const turnStr = rotationSpeed * (1 + Math.abs(velocity) * 0.3) * dtRatio;
+                if (left) { driftAngle += driftSpeed * dtRatio; horseGroup.rotation.y += turnStr; }
+                if (right) { driftAngle -= driftSpeed * dtRatio; horseGroup.rotation.y -= turnStr; }
+                // Cap drift to prevent physics spiral crash
+                driftAngle = Math.max(-0.4, Math.min(0.4, driftAngle));
+                horseGroup.rotation.z = THREE.MathUtils.lerp(horseGroup.rotation.z, driftAngle * 0.2, 0.1 * dtRatio);
+            } else {
+                driftAngle *= Math.pow(0.85, dtRatio); // Faster drift recovery
+                horseGroup.rotation.z *= Math.pow(0.85, dtRatio);
+            }
+
+            // Movement
+            const mx = Math.sin(horseGroup.rotation.y) * velocity * dtRatio;
+            const mz = Math.cos(horseGroup.rotation.y) * velocity * dtRatio;
+            const nx = horseGroup.position.x - mx;
+            const nz = horseGroup.position.z - mz;
+
+            if (!checkCollision(nx, nz)) {
+                horseGroup.position.x = nx;
+                horseGroup.position.z = nz;
+            } else {
+                velocity *= -0.2;
+            }
+
+            // Jumping + Gravity
+            if (keys[' '] && isGrounded) { velocityY = jumpPower; isGrounded = false; }
+            velocityY -= gravity * dtRatio;
+            horseGroup.position.y += velocityY * dtRatio;
+
+            // Terrain following - hooves are at local y=0.2, so offset group by -0.2
+            const terrH = getTerrainHeight(horseGroup.position.x, horseGroup.position.z);
+            const groundY = terrH + 2.5; // Offset +2.5 to ensure hooves are ABOVE sand (5x scale)
+            if (horseGroup.position.y <= groundY) {
+                horseGroup.position.y = groundY;
+                velocityY = 0;
+                isGrounded = true;
+            }
+
+            // ---- Animate Horse ----
+            const speed = Math.abs(velocity);
+            if (mixer) {
+                // Update animation mixer
+                mixer.update(dt);
+                // Dynamically speed up the horse's running animation when moving fast
+                if (speed > 2.0) {
+                    mixer.timeScale = 1.0 + (speed / 15.0);
+                } else {
+                    mixer.timeScale = 1.0;
+                }
+            }
+
+            // Rider bob logic
+            if (speed > 0.05 && isGrounded) {
+                const gallop = time * (8 + speed * 20);
+                rider.position.y = -1.2 + Math.sin(gallop * 2) * 0.06; // Bobbing relative to -1.2 base
+                // Spawn hoof dust
+                if (frameCount % 2 === 0) {
+                    const hi = hoofDustIdx % hoofDustCount;
+                    const hx = horseGroup.position.x + (Math.random() - 0.5) * 2;
+                    const hz = horseGroup.position.z + (Math.random() - 0.5) * 2;
+                    hoofPos[hi * 3] = hx;
+                    hoofPos[hi * 3 + 1] = horseGroup.position.y + 0.5;
+                    hoofPos[hi * 3 + 2] = hz;
+                    hoofVel[hi * 3] = (Math.random() - 0.5) * 0.1;
+                    hoofVel[hi * 3 + 1] = 0.05 + Math.random() * 0.1;
+                    hoofVel[hi * 3 + 2] = (Math.random() - 0.5) * 0.1;
+                    hoofLife[hi] = 1.0;
+                    hoofDustIdx++;
+                }
+            }
+
+            // Update hoof dust particles
+            for (let i = 0; i < hoofDustCount; i++) {
+                if (hoofLife[i] > 0) {
+                    hoofPos[i * 3] += hoofVel[i * 3];
+                    hoofPos[i * 3 + 1] += hoofVel[i * 3 + 1];
+                    hoofPos[i * 3 + 2] += hoofVel[i * 3 + 2];
+                    hoofVel[i * 3 + 1] -= 0.001;
+                    hoofLife[i] -= 0.015;
+                    if (hoofLife[i] <= 0) {
+                        hoofPos[i * 3 + 1] = -100;
+                    }
+                }
+            }
+            hoofDustGeo.attributes.position.needsUpdate = true;
+            hoofDustMat.opacity = 0.35;
+
+            // Ambient dust follows player (Removed)
+
+            // Update terrain chunks
+            if (frameCount % 30 === 0) updateTerrain(horseGroup.position.x, horseGroup.position.z);
+
+            // ---- Camera ----
+            const camDist = 18 + speed * 8;
+            const camH = 8 + speed * 3 + Math.abs(velocityY) * 5;
+
+            // Calculate target without creating new Vector3 objects every frame (avoids Garbage Collection pauses)
+            const targetCamX = horseGroup.position.x + Math.sin(horseGroup.rotation.y) * camDist - driftAngle * 3;
+            const targetCamY = horseGroup.position.y + camH;
+            const targetCamZ = horseGroup.position.z + Math.cos(horseGroup.rotation.y) * camDist;
+
+            // Simple custom lerp for performance
+            camera.position.x += (targetCamX - camera.position.x) * 0.06;
+            camera.position.y += (targetCamY - camera.position.y) * 0.06;
+            camera.position.z += (targetCamZ - camera.position.z) * 0.06;
+
+            // LookAt target calculation without clone()
+            const lookPtX = horseGroup.position.x - Math.sin(horseGroup.rotation.y) * 5;
+            const lookPtY = horseGroup.position.y + 3;
+            const lookPtZ = horseGroup.position.z - Math.cos(horseGroup.rotation.y) * 5;
+
+            camera.lookAt(lookPtX, lookPtY, lookPtZ);
+
+            // ---- Collectibles ----
+            collectibles.forEach(c => {
+                if (!c.collected) {
+                    c.mesh.rotation.y += c.rotSpeed;
+                    c.ring.rotation.z += 0.02;
+                    c.mesh.position.y = c.baseY + Math.sin(time * 2 + c.mesh.position.x) * 0.5;
+
+                    // Animate marker arrow - bob up and down above orb
+                    if (c.marker) {
+                        c.marker.position.y = 3.5 + Math.sin(time * 4 + c.mesh.position.x * 0.5) * 0.6;
+                    }
+
+                    // Faster distance check avoiding Math.sqrt
+                    const dx = horseGroup.position.x - c.mesh.position.x;
+                    const dy = horseGroup.position.y - c.mesh.position.y;
+                    const dz = horseGroup.position.z - c.mesh.position.z;
+                    const distSq = dx * dx + dy * dy + dz * dz;
+
+                    if (distSq < 36) { // 6^2 = 36
+                        c.collected = true;
+                        scene.remove(c.mesh);
+
+                        // Simply remove from scene. Disposing here was causing WebGL crashes!
+                        // c.mesh.children.forEach(child => {
+                        //     if (child.isMesh) {
+                        //         child.geometry.dispose();
+                        //         child.material.dispose();
+                        //     }
+                        // });
+
+                        collectedCount++;
+                        horseCountEl.innerText = collectedCount;
+                        showInfoInBottom(c.info);
+
+                        if (collectedCount >= 50) {
+                            congratsEl.style.display = 'block';
+                            setTimeout(() => { congratsEl.style.display = 'none'; }, 6000);
+                        }
+                    }
+                }
+            });
+
+            // ---- Update Direction Arrow ----
+            const nearestC = findNearestCollectible();
+            if (nearestC) {
+                arrowGroup.visible = true;
+                // Position above the horse
+                arrowGroup.position.set(
+                    horseGroup.position.x,
+                    horseGroup.position.y + 12,
+                    horseGroup.position.z
+                );
+                // Calculate angle to nearest collectible
+                const adx = nearestC.mesh.position.x - horseGroup.position.x;
+                const adz = nearestC.mesh.position.z - horseGroup.position.z;
+                const targetAngle = Math.atan2(adx, adz);
+                arrowGroup.rotation.y = targetAngle;
+                // Gentle bob animation
+                arrowGroup.position.y += Math.sin(time * 3) * 0.4;
+                // Pulse the ring
+                const pulse = 1.0 + Math.sin(time * 4) * 0.15;
+                arrowRing.scale.set(pulse, pulse, pulse);
+                // Show distance indicator — change color based on proximity
+                const distToNearest = Math.sqrt(adx * adx + adz * adz);
+                if (distToNearest < 30) {
+                    arrowMat.color.setHex(0x00ff88); arrowMat.emissive.setHex(0x00ff88);
+                    arrowRingMat.color.setHex(0x00ff88); arrowRingMat.emissive.setHex(0x00ff88);
+                } else if (distToNearest < 80) {
+                    arrowMat.color.setHex(0xffd700); arrowMat.emissive.setHex(0xffd700);
+                    arrowRingMat.color.setHex(0xffd700); arrowRingMat.emissive.setHex(0xffd700);
+                } else {
+                    arrowMat.color.setHex(0xD4AF37); arrowMat.emissive.setHex(0xD4AF37);
+                    arrowRingMat.color.setHex(0xD4AF37); arrowRingMat.emissive.setHex(0xD4AF37);
+                }
+            } else {
+                arrowGroup.visible = false; // All collected
+            }
+
+            // Move sun mesh with player for consistent sky
+            const px = horseGroup.position.x, pz = horseGroup.position.z;
+            sunMesh.position.set(px + 600, 1050, pz + 300);
+
+            // Draw minimap vastly less frequently (every 30 frames instead of 5) to save massive CPU time
+            if (frameCount % 30 === 0) drawMinimap();
+
+            renderer.render(scene, camera);
+        }
+
+        // Pre-fetch DOM element to prevent lookup crash inside loop
+        const infoBarEl = document.getElementById('info-bar');
+        const horseCountEl = document.getElementById('horse-count');
+        const congratsEl = document.getElementById('congrats');
+
+        function showInfoInBottom(text) {
+            infoBarEl.innerHTML = `<div style="font-size:1rem; opacity:0.8;">✨ معلومة جديدة:</div><div style="font-size:1.1rem; font-weight:700; margin-top:5px;">${text}</div>`;
+            infoBarEl.style.opacity = '1';
+            setTimeout(() => { infoBarEl.style.opacity = '0'; }, 4000);
+        }
+
+        // ---- Loading Screen Logic ----
+        let gameReady = false;
+        const loadingEl = document.getElementById('horse-loading');
+        const loadBar = document.getElementById('load-bar');
+        const loadPct = document.getElementById('load-pct');
+
+        function checkLoading() {
+            const pct = Math.min(100, Math.floor((chunksLoaded / TOTAL_CHUNKS_NEEDED) * 100));
+            loadBar.style.width = pct + '%';
+            loadPct.textContent = pct + '%';
+
+            if (chunksLoaded >= TOTAL_CHUNKS_NEEDED && !gameReady) {
+                gameReady = true;
+                setTimeout(() => {
+                    loadingEl.style.transition = 'opacity 0.8s ease';
+                    loadingEl.style.opacity = '0';
+                    setTimeout(() => { loadingEl.style.display = 'none'; }, 800);
+                }, 500);
+            }
+        }
+
+        // ---- Minimap ----
+        const minimapCanvas = document.getElementById('minimap');
+        const minimapCtx = minimapCanvas.getContext('2d');
+        minimapCanvas.width = 180;
+        minimapCanvas.height = 180;
+        const MINIMAP_RANGE = 400; // world units radius shown
+
+        function drawMinimap() {
+            const ctx = minimapCtx;
+            const w = minimapCanvas.width, h = minimapCanvas.height;
+            const px = horseGroup.position.x, pz = horseGroup.position.z;
+
+            ctx.clearRect(0, 0, w, h);
+
+            // Background terrain colors
+            const imgData = ctx.createImageData(w, h);
+            const step = 4; // sample every N pixels for performance
+            for (let py = 0; py < h; py += step) {
+                for (let ppx = 0; ppx < w; ppx += step) {
+                    const wx = px + ((ppx / w) - 0.5) * MINIMAP_RANGE * 2;
+                    const wz = pz + ((py / h) - 0.5) * MINIMAP_RANGE * 2;
+                    const th = getTerrainHeight(wx, wz);
+                    const brightness = Math.floor(140 + th * 3);
+                    const r = Math.min(255, brightness + 30);
+                    const g = Math.min(255, brightness + 10);
+                    const b = Math.min(255, Math.floor(brightness * 0.55));
+                    for (let dy = 0; dy < step && py + dy < h; dy++) {
+                        for (let dx = 0; dx < step && ppx + dx < w; dx++) {
+                            const idx = ((py + dy) * w + ppx + dx) * 4;
+                            imgData.data[idx] = r;
+                            imgData.data[idx + 1] = g;
+                            imgData.data[idx + 2] = b;
+                            imgData.data[idx + 3] = 200;
+                        }
+                    }
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            // Draw collectibles as gold dots
+            collectibles.forEach(c => {
+                if (!c.collected) {
+                    const cx2 = ((c.mesh.position.x - px) / (MINIMAP_RANGE * 2) + 0.5) * w;
+                    const cz2 = ((c.mesh.position.z - pz) / (MINIMAP_RANGE * 2) + 0.5) * h;
+                    if (cx2 > 0 && cx2 < w && cz2 > 0 && cz2 < h) {
+                        ctx.fillStyle = '#ffd700';
+                        ctx.beginPath();
+                        ctx.arc(cx2, cz2, 3, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            });
+
+            // Draw obstacles as dark spots
+            obstacles.forEach(ob => {
+                const ox = ((ob.mesh.position.x - px) / (MINIMAP_RANGE * 2) + 0.5) * w;
+                const oz = ((ob.mesh.position.z - pz) / (MINIMAP_RANGE * 2) + 0.5) * h;
+                if (ox > 2 && ox < w - 2 && oz > 2 && oz < h - 2) {
+                    ctx.fillStyle = 'rgba(60,40,20,0.6)';
+                    ctx.beginPath();
+                    ctx.arc(ox, oz, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+
+            // Draw player (green triangle pointing in direction)
+            const cx3 = w / 2, cz3 = h / 2;
+            ctx.save();
+            ctx.translate(cx3, cz3);
+            ctx.rotate(-horseGroup.rotation.y);
+            ctx.fillStyle = '#00ff44';
+            ctx.beginPath();
+            ctx.moveTo(0, -6);
+            ctx.lineTo(-4, 5);
+            ctx.lineTo(4, 5);
+            ctx.closePath();
+            ctx.fill();
+            ctx.strokeStyle = '#003300';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.restore();
+
+            // Border glow
+            ctx.strokeStyle = 'rgba(212,175,55,0.4)';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(0, 0, w, h);
+        }
+
+        animate();
+    </script>
+
+    <!-- ================= 2D GAME & UI SCRIPT ================= -->
+    <script>
+        // Information Array
+        const infos = [
+            "تأسست الدولة السعودية الأولى عام 1727م.",
+            "مؤسس الدولة السعودية الأولى هو الإمام محمد بن سعود.",
+            "كانت الدرعية عاصمة الدولة السعودية الأولى.",
+            "انطلقت الدولة من الدرعية في قلب نجد.",
+            "يمثل يوم التأسيس ذكرى بداية الدولة السعودية في 22 فبراير.",
+            "يختلف يوم التأسيس عن اليوم الوطني السعودي.",
+            "يركز يوم التأسيس على الجذور التاريخية الممتدة لأكثر من ثلاثة قرون.",
+            "شهدت الدرعية نهضة سياسية وعلمية في عهد الدولة الأولى.",
+            "امتد نفوذ الدولة السعودية الأولى إلى معظم مناطق شبه الجزيرة العربية.",
+            "اعتمدت الدولة على مبادئ الوحدة والاستقرار.",
+            "كان تأسيس الدولة نقطة تحول في تاريخ المنطقة.",
+            "استمرت الدولة السعودية الأولى حتى عام 1818م.",
+            "انتهت الدولة الأولى بعد حملة عسكرية بقيادة إبراهيم باشا.",
+            "أعيد تأسيس الدولة السعودية الثانية عام 1824م.",
+            "بدأت الدولة السعودية الثالثة عام 1902م.",
+            "توحدت المملكة العربية السعودية رسميًا عام 1932م.",
+            "شعار يوم التأسيس يحمل عبارة يوم بدينا.",
+            "يتضمن الشعار رموزًا تعبر عن الثقافة والهوية السعودية.",
+            "من رموز يوم التأسيس الخيل العربية رمز الشجاعة.",
+            "ترمز النخلة في الشعار إلى الكرم والعطاء.",
+            "يرمز المجلس إلى الوحدة والتلاحم بين أبناء الوطن.",
+            "يعكس السوق في الشعار النشاط الاقتصادي التاريخي.",
+            "يمثل العلم السعودي رمز السيادة والوحدة.",
+            "أُعلن يوم التأسيس إجازة رسمية عام 2022م.",
+            "صدر الأمر الملكي باعتماد يوم التأسيس من الملك سلمان بن عبدالعزيز.",
+            "يعزز يوم التأسيس روح الانتماء الوطني.",
+            "يسلط الاحتفال الضوء على ثلاثة قرون من التاريخ السعودي.",
+            "كانت الدرعية مركزًا تجاريًا مهمًا في القرن الثامن عشر.",
+            "لعب الموقع الجغرافي للدرعية دورًا في قوة الدولة.",
+            "اعتمدت الدولة على نظام إداري منظم في تلك الفترة.",
+            "شهدت الدولة الأولى توسعًا سياسيًا ملحوظًا.",
+            "رسخت الدولة مفاهيم الاستقرار بعد فترات من التفرق.",
+            "يعكس يوم التأسيس الاعتزاز بالإرث الثقافي.",
+            "تقام فعاليات تراثية احتفالًا بهذه المناسبة.",
+            "تُضاء المعالم الوطنية احتفالًا بيوم التأسيس.",
+            "ترتدي العائلات الأزياء التراثية في هذه المناسبة.",
+            "يركز يوم التأسيس على عمق التاريخ السعودي.",
+            "يمثل التأسيس بداية مشروع دولة ممتد لقرون.",
+            "شهدت الدرعية نشاطًا علميًا وثقافيًا بارزًا.",
+            "يعبر يوم التأسيس عن استمرارية الدولة السعودية.",
+            "يبرز الاحتفال أهمية الوحدة الوطنية عبر التاريخ.",
+            "يعكس يوم التأسيس قوة الإرادة السياسية المبكرة.",
+            "شكلت التحالفات المحلية عنصرًا مهمًا في بناء الدولة.",
+            "أسهم الاستقرار في ازدهار الحياة الاقتصادية.",
+            "يرمز يوم التأسيس إلى الأصالة والجذور الراسخة.",
+            "يعزز الاحتفال الفخر بالهوية الوطنية.",
+            "يمثل يوم التأسيس نقطة انطلاق لمسيرة طويلة من البناء.",
+            "يعكس التأسيس رؤية استراتيجية مبكرة لبناء دولة قوية.",
+            "يجسد يوم التأسيس قصة صمود تاريخية.",
+            "يؤكد يوم التأسيس أن تاريخ المملكة يمتد لأكثر من 300 عام."
+        ];
+
+
+
+        let currentInfoIndex = 0;
+
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            if (pageId === 'landing-page') {
+                updateInfoDisplay();
+            } else if (pageId === 'game-page') {
+                initGame();
+            } else if (pageId === 'puzzle-page') {
+                initPuzzle();
+                setTimeout(() => shufflePuzzle(), 100);
+            }
+        }
+
+        // Info Slider Functions
+        function updateInfoDisplay() {
+            const infoText = infos[currentInfoIndex];
+            const infoTextEl = document.getElementById('infoText');
+            if (infoTextEl) {
+                infoTextEl.textContent = infoText.substring(infoText.indexOf('-') + 1).trim();
+            }
+            const infoNumEl = document.getElementById('infoNumber');
+            if (infoNumEl) {
+                infoNumEl.textContent = `${currentInfoIndex + 1} / 50`;
+            }
+            const progIndEl = document.getElementById('progressIndicator');
+            if (progIndEl) {
+                progIndEl.textContent = `المعلومة ${currentInfoIndex + 1} من 50`;
+            }
+
+            const prevBtn = document.getElementById('prevBtn');
+            if (prevBtn) {
+                prevBtn.disabled = currentInfoIndex === 0;
+            }
+            const nextBtn = document.getElementById('nextBtn');
+            if (nextBtn) {
+                nextBtn.disabled = currentInfoIndex === infos.length - 1;
+            }
+        }
+
+        function nextInfo() {
+            if (currentInfoIndex < infos.length - 1) {
+                currentInfoIndex++;
+                updateInfoDisplay();
+            }
+        }
+
+        function previousInfo() {
+            if (currentInfoIndex > 0) {
+                currentInfoIndex--;
+                updateInfoDisplay();
+            }
+        }
+
+        // Game Variables
+        let canvas, ctx;
+        let gameLevel = 1;
+        let collectedInfoCount = 0;
+        let player, platforms, infoItem, particles, spikes, walls, movingPlatforms;
+        let devilModifier = ''; // e.g. 'reverse', 'heavy', 'floaty', 'fast', 'invisible_blocks'
+        let devilEnemies = [];
+        let keys2 = {};
+        let cameraX = 0; // Camera offset for scrolling
+
+        // Game Classes
+        class Player {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.width = 32;
+                this.height = 48;
+                this.velocityX = 0;
+                this.velocityY = 0;
+                this.speed = 10;
+                this.jumpPower = 15;
+                this.gravity = 0.5;
+                this.onGround = false;
+                this.direction = 1; // 1 for right, -1 for left
+            }
+
+            draw() {
+                // Draw Saudi man in traditional clothing (pixel style)
+                // Thobe (white robe)
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(this.x + 4, this.y + 16, 24, 32);
+
+                // Head
+                ctx.fillStyle = '#D4A574';
+                ctx.fillRect(this.x + 8, this.y, 16, 16);
+
+                // Shemagh (red and white headdress)
+                ctx.fillStyle = '#CC0000';
+                ctx.fillRect(this.x + 4, this.y - 4, 24, 8);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(this.x + 8, this.y - 2, 4, 4);
+                ctx.fillRect(this.x + 16, this.y - 2, 4, 4);
+
+                // Agal (black rope on shemagh)
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(this.x + 4, this.y + 2, 24, 3);
+
+                // Eyes
+                ctx.fillStyle = '#000000';
+                ctx.fillRect(this.x + 10, this.y + 6, 3, 2);
+                ctx.fillRect(this.x + 19, this.y + 6, 3, 2);
+
+                // Feet
+                ctx.fillStyle = '#8B7355';
+                ctx.fillRect(this.x + 6, this.y + 44, 8, 4);
+                ctx.fillRect(this.x + 18, this.y + 44, 8, 4);
+            }
+
+            update() {
+                // Apply Devil Modifiers to Physics
+                if (devilModifier === 'heavy') {
+                    this.gravity = 1.0; this.jumpPower = 12; this.speed = 8;
+                } else if (devilModifier === 'floaty') {
+                    this.gravity = 0.2; this.jumpPower = 10; this.speed = 6;
+                } else if (devilModifier === 'fast') {
+                    this.gravity = 0.5; this.jumpPower = 15; this.speed = 18;
+                } else {
+                    this.gravity = 0.5; this.jumpPower = 15; this.speed = 10;
+                }
+
+                // Horizontal movement (support Reverse Controls prank)
+                let rightPressed = keys2['ArrowRight'];
+                let leftPressed = keys2['ArrowLeft'];
+
+                if (devilModifier === 'reverse') {
+                    rightPressed = keys2['ArrowLeft'];
+                    leftPressed = keys2['ArrowRight'];
+                }
+
+                if (rightPressed) {
+                    this.velocityX = this.speed;
+                    this.direction = 1;
+                } else if (leftPressed) {
+                    this.velocityX = -this.speed;
+                    this.direction = -1;
+                } else {
+                    this.velocityX *= 0.8;
+                }
+
+                // Jump
+                if (keys2[' '] && this.onGround) {
+                    this.velocityY = -this.jumpPower;
+                    this.onGround = false;
+                }
+
+                // Apply gravity
+                this.velocityY += this.gravity;
+
+                // Update horizontal position
+                this.x += this.velocityX;
+
+                // Check wall collisions (horizontal)
+                walls.forEach(wall => {
+                    if (wall.checkCollision(this)) {
+                        if (this.velocityX > 0) {
+                            this.x = wall.x - this.width;
+                        } else if (this.velocityX < 0) {
+                            this.x = wall.x + wall.width;
+                        }
+                        this.velocityX = 0;
+                    }
+                });
+
+                // Also check TrollBoxes for horizontal collision
+                platforms.forEach(p => {
+                    if (p instanceof TrollBox && p.isSolid !== false) {
+                        if (this.y + this.height > p.y && this.y < p.y + p.height) {
+                            if (this.velocityX > 0 && this.x + this.width > p.x && this.x < p.x) {
+                                this.x = p.x - this.width; this.velocityX = 0;
+                            } else if (this.velocityX < 0 && this.x < p.x + p.width && this.x + this.width > p.x + p.width) {
+                                this.x = p.x + p.width; this.velocityX = 0;
+                            }
+                        }
+                    }
+                });
+
+                // Boundaries
+                if (this.x < 0) this.x = 0;
+                // No right boundary - level extends beyond canvas
+
+                // Update vertical position
+                this.y += this.velocityY;
+
+                // Check spike collisions
+                spikes.forEach(spike => {
+                    if (spike.checkCollision(this)) {
+                        respawnPlayer();
+                    }
+                });
+
+                // Check platform collisions (including moving platforms)
+                this.onGround = false;
+                let standingOnMovingPlatform = null;
+
+                [...platforms, ...movingPlatforms].forEach(platform => {
+                    // Check if player is horizontally aligned with platform
+                    if (this.x + this.width > platform.x &&
+                        this.x < platform.x + platform.width) {
+
+                        // Ceiling collision (jumping up and hitting the bottom of an InvisibleBlock)
+                        if (platform instanceof InvisibleBlock && this.velocityY < 0 &&
+                            this.y < platform.y + platform.height &&
+                            this.y - this.velocityY >= platform.y + platform.height) {
+
+                            this.y = platform.y + platform.height;
+                            this.velocityY = 0; // Bonk!
+                            platform.isVisible = true; // Reveal the troll block
+                        }
+
+                        // Check if player is falling and intersecting platform from above
+                        if (this.velocityY >= 0 &&
+                            this.y + this.height > platform.y &&
+                            this.y + this.height <= platform.y + this.velocityY + 10) {
+
+                            // Place player on top of platform
+                            this.y = platform.y - this.height;
+                            this.velocityY = 0;
+                            this.onGround = true;
+
+                            // Triggers for Special Platforms
+                            if (platform instanceof MovingPlatform) {
+                                standingOnMovingPlatform = platform;
+                            } else if (platform instanceof FakePlatform) {
+                                platform.triggerFall(); // Triggers the prank!
+                                // If it's falling, you aren't really on the ground securely anymore
+                                if (platform.isFalling) {
+                                    this.onGround = false;
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Move with moving platform
+                if (standingOnMovingPlatform) {
+                    this.x += standingOnMovingPlatform.speed * standingOnMovingPlatform.direction;
+                }
+
+                // Check info item collision
+                if (infoItem &&
+                    this.x < infoItem.x + 30 &&
+                    this.x + this.width > infoItem.x &&
+                    this.y < infoItem.y + 30 &&
+                    this.y + this.height > infoItem.y) {
+                    collectInfo();
+                }
+
+                // Fall off bottom
+                if (this.y > canvas.height) {
+                    respawnPlayer();
+                }
+            }
+        }
+
+        class Platform {
+            constructor(x, y, width, height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+            }
+
+            draw() {
+                // Platform with brick pattern
+                ctx.fillStyle = '#8B7355';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                ctx.strokeStyle = '#6B5839';
+                ctx.lineWidth = 2;
+                for (let i = 0; i < this.width; i += 20) {
+                    ctx.strokeRect(this.x + i, this.y, 20, this.height);
+                }
+            }
+        }
+
+        class InfoItem {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.angle = 0;
+            }
+
+            draw() {
+                this.angle += 0.05;
+                const offsetY = Math.sin(this.angle) * 5;
+
+                // Draw glowing scroll/document
+                ctx.save();
+                ctx.translate(this.x + 15, this.y + 15 + offsetY);
+
+                // Glow effect
+                ctx.shadowColor = '#D4AF37';
+                ctx.shadowBlur = 15;
+
+                // Scroll
+                ctx.fillStyle = '#F5F1E8';
+                ctx.fillRect(-12, -15, 24, 30);
+
+                // Seal
+                ctx.fillStyle = '#D4AF37';
+                ctx.beginPath();
+                ctx.arc(0, 0, 8, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Text lines on scroll
+                ctx.fillStyle = '#006C35';
+                ctx.fillRect(-8, -10, 16, 2);
+                ctx.fillRect(-8, -5, 16, 2);
+                ctx.fillRect(-8, 0, 16, 2);
+
+                ctx.restore();
+            }
+        }
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.velocityX = (Math.random() - 0.5) * 4;
+                this.velocityY = (Math.random() - 0.5) * 4;
+                this.life = 1;
+                this.decay = 0.02;
+            }
+
+            update() {
+                this.x += this.velocityX;
+                this.y += this.velocityY;
+                this.life -= this.decay;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.life})`;
+                ctx.fillRect(this.x, this.y, 4, 4);
+            }
+        }
+
+        class Spike {
+            constructor(x, y, width) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = 20;
+            }
+
+            draw() {
+                // Draw dangerous red spikes
+                ctx.fillStyle = '#CC0000';
+                const spikeCount = Math.floor(this.width / 20);
+                for (let i = 0; i < spikeCount; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(this.x + i * 20, this.y + this.height);
+                    ctx.lineTo(this.x + i * 20 + 10, this.y);
+                    ctx.lineTo(this.x + i * 20 + 20, this.y + this.height);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                // Shadow
+                ctx.fillStyle = '#8B0000';
+                ctx.fillRect(this.x, this.y + this.height, this.width, 3);
+            }
+
+            checkCollision(player) {
+                return player.x + player.width > this.x &&
+                    player.x < this.x + this.width &&
+                    player.y + player.height > this.y &&
+                    player.y < this.y + this.height;
+            }
+        }
+
+        class Wall {
+            constructor(x, y, width, height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+            }
+
+            draw() {
+                // Stone wall
+                ctx.fillStyle = '#5A4A3A';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                // Brick texture
+                ctx.strokeStyle = '#3A2A1A';
+                ctx.lineWidth = 2;
+                for (let row = 0; row < this.height; row += 25) {
+                    for (let col = 0; col < this.width; col += 30) {
+                        ctx.strokeRect(this.x + col, this.y + row, 30, 25);
+                    }
+                }
+            }
+
+            checkCollision(player) {
+                return player.x + player.width > this.x &&
+                    player.x < this.x + this.width &&
+                    player.y + player.height > this.y &&
+                    player.y < this.y + this.height;
+            }
+        }
+
+        class MovingPlatform extends Platform {
+            constructor(x, y, width, height, startX, endX, speed) {
+                super(x, y, width, height);
+                this.startX = startX;
+                this.endX = endX;
+                this.speed = speed;
+                this.direction = 1;
+                this.originalX = x;
+            }
+
+            update() {
+                this.x += this.speed * this.direction;
+
+                if (this.x <= this.startX || this.x >= this.endX) {
+                    this.direction *= -1;
+                }
+            }
+
+            draw() {
+                // Moving platform with animated appearance
+                ctx.fillStyle = '#4A90E2';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                ctx.strokeStyle = '#2E5C8A';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+
+                // Arrows to show movement
+                ctx.fillStyle = '#FFFFFF';
+                const arrowY = this.y + this.height / 2;
+                // Left arrow
+                ctx.beginPath();
+                ctx.moveTo(this.x + 10, arrowY);
+                ctx.lineTo(this.x + 5, arrowY - 5);
+                ctx.lineTo(this.x + 5, arrowY + 5);
+                ctx.closePath();
+                ctx.fill();
+                // Right arrow
+                ctx.beginPath();
+                ctx.moveTo(this.x + this.width - 10, arrowY);
+                ctx.lineTo(this.x + this.width - 5, arrowY - 5);
+                ctx.lineTo(this.x + this.width - 5, arrowY + 5);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        // --- DEVIL MECHANICS CLASSES ---
+
+        class FakePlatform extends Platform {
+            constructor(x, y, width, height) {
+                super(x, y, width, height);
+                this.isFalling = false;
+                this.velocityY = 0;
+            }
+
+            update() {
+                if (this.isFalling) {
+                    this.velocityY += 0.5; // Gravity pull on fake platform
+                    this.y += this.velocityY;
+                }
+            }
+
+            draw() {
+                // Look exactly like a normal platform to trick the player
+                ctx.fillStyle = '#8B7355';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+
+                ctx.strokeStyle = '#6B5839';
+                ctx.lineWidth = 2;
+                for (let i = 0; i < this.width; i += 20) {
+                    ctx.strokeRect(this.x + i, this.y, 20, this.height);
+                }
+            }
+
+            triggerFall() {
+                this.isFalling = true; // Instantly give way
+            }
+        }
+
+        class HiddenSpike extends Spike {
+            constructor(x, y, width) {
+                super(x, y, width);
+                this.isVisible = false;
+                this.baseY = y;
+                this.alertRadius = 100; // Pops up when player is this close
+            }
+
+            update(playerX) {
+                // If player gets close, spikes instantly pop up
+                if (Math.abs(playerX - this.x) < this.alertRadius && !this.isVisible) {
+                    this.isVisible = true;
+                }
+            }
+
+            draw() {
+                if (!this.isVisible) return; // Completely invisible until triggered
+
+                // Draw dangerous red spikes
+                ctx.fillStyle = '#CC0000';
+                const spikeCount = Math.floor(this.width / 20);
+                for (let i = 0; i < spikeCount; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(this.x + i * 20, this.y + this.height);
+                    ctx.lineTo(this.x + i * 20 + 10, this.y);
+                    ctx.lineTo(this.x + i * 20 + 20, this.y + this.height);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+                ctx.fillStyle = '#8B0000';
+                ctx.fillRect(this.x, this.y + this.height, this.width, 3);
+            }
+
+            checkCollision(player) {
+                if (!this.isVisible) return false; // Can't die if it hasn't popped yet
+                return player.x + player.width > this.x &&
+                    player.x < this.x + this.width &&
+                    player.y + player.height > this.y &&
+                    player.y < this.y + this.height;
+            }
+        }
+
+        class FallingSpike extends Spike {
+            constructor(x, y, width) {
+                super(x, y, width);
+                this.isFalling = false;
+                this.velocityY = 0;
+                this.alertRadius = 60; // Triggers when player runs directly underneath
+            }
+
+            update(playerX) {
+                if (Math.abs(playerX - this.x) < this.alertRadius && !this.isFalling) {
+                    this.isFalling = true; // Drop from the ceiling
+                }
+
+                if (this.isFalling) {
+                    this.velocityY += 0.8; // Gravity
+                    this.y += this.velocityY;
+                }
+            }
+
+            draw() {
+                // Pointing DOWNWARDS
+                ctx.fillStyle = '#CC0000';
+                const spikeCount = Math.floor(this.width / 20);
+                for (let i = 0; i < spikeCount; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(this.x + i * 20, this.y);
+                    ctx.lineTo(this.x + i * 20 + 10, this.y + this.height);
+                    ctx.lineTo(this.x + i * 20 + 20, this.y);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            }
+        }
+
+        class InvisibleBlock extends Platform {
+            constructor(x, y, width, height) {
+                super(x, y, width, height);
+                this.isVisible = false;
+                this.isSolid = true; // Blocks movement
+            }
+
+            draw() {
+                if (!this.isVisible) return;
+                // Draws exactly like a wall when hit
+                ctx.fillStyle = '#6B5839';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#4A3C26';
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+            }
+        }
+
+        class TrollBox extends Platform {
+            constructor(x, y, width, height, type) {
+                super(x, y, width, height);
+                this.type = type; // 'fall' or 'push'
+                this.isTriggered = false;
+                this.velocityY = 0;
+            }
+
+            update(player) {
+                if (!this.isTriggered) {
+                    if (this.type === 'fall' && Math.abs(player.x - this.x) < 50 && player.y > this.y) {
+                        this.isTriggered = true; // Drop on player
+                    }
+                    if (this.type === 'push' && Math.abs(player.x - this.x) < 50 && player.y < this.y) {
+                        this.isTriggered = true; // Slide towards player
+                    }
+                }
+
+                if (this.isTriggered) {
+                    if (this.type === 'fall') {
+                        this.velocityY += 0.5;
+                        this.y += this.velocityY;
+                    } else if (this.type === 'push') {
+                        this.x -= 5; // Slide left to push player off
+                    }
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = '#ff8800'; // Warning color box
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                ctx.strokeStyle = '#aa5500';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(this.x, this.y, this.width, this.height);
+                // Draw skull or angry eyes simply
+                ctx.fillStyle = 'black';
+                ctx.fillRect(this.x + 10, this.y + 10, 5, 5);
+                ctx.fillRect(this.x + this.width - 15, this.y + 10, 5, 5);
+            }
+        }
+
+        class FakeInfoItem extends InfoItem {
+            constructor(x, y) {
+                super(x, y);
+                this.isTriggered = false;
+                this.fleeTimer = 0;
+            }
+
+            update(playerX) {
+                if (Math.abs(playerX - this.x) < 80) {
+                    this.isTriggered = true;
+                }
+                if (this.isTriggered) {
+                    this.fleeTimer++;
+                    this.x += 4; // Runs away!
+                    this.y = this.y + Math.sin(this.fleeTimer * 0.2) * 2; // Bobs up and down
+                }
+            }
+        }
+
+        class TrollEnemy {
+            constructor(x, y, width, height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.speed = 2;
+                this.direction = -1;
+                this.velocityY = 0;
+            }
+
+            update(playerX) {
+                // Waits until player is close to start moving
+                if (Math.abs(playerX - this.x) < 400) {
+                    this.x += this.speed * this.direction;
+                    this.velocityY += 0.5; // Gravity
+                    this.y += this.velocityY;
+
+                    // Simple ground collision assumption (since they spawn on platforms)
+                    // We'll also do actual collision in game loop
+                }
+            }
+
+            draw() {
+                ctx.fillStyle = '#CC0000';
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+                // Angry eyes
+                ctx.fillStyle = 'black';
+                ctx.fillRect(this.x + 5, this.y + 5, 5, 5);
+                ctx.fillRect(this.x + 20, this.y + 5, 5, 5);
+                ctx.fillRect(this.x + 5, this.y + 15, 20, 2);
+            }
+
+            checkCollision(player) {
+                return player.x + player.width > this.x &&
+                    player.x < this.x + this.width &&
+                    player.y + player.height > this.y &&
+                    player.y < this.y + this.height;
+            }
+        }
+
+        function initGame() {
+            canvas = document.getElementById('gameCanvas');
+            ctx = canvas.getContext('2d');
+
+            player = new Player(0, 0); // Will be repositioned in generateLevel
+            particles = [];
+            spikes = [];
+            walls = [];
+            movingPlatforms = [];
+            devilEnemies = [];
+
+            generateLevel();
+            gameLoop();
+        }
+
+        function generateLevel() {
+            platforms = [];
+            spikes = [];
+            walls = [];
+            movingPlatforms = [];
+            devilEnemies = [];
+            cameraX = 0; // Reset camera
+
+            // Difficulty scaling
+            const difficulty = Math.min(gameLevel, 50);
+            const difficultyPercent = difficulty / 50;
+
+            // Starting platform (where player spawns)
+            const startPlatform = new Platform(20, 450, 120, 20);
+            platforms.push(startPlatform);
+
+            // Create progressive platform path
+            let currentX = startPlatform.x + startPlatform.width + 80;
+            let currentY = 450;
+            const platformCount = 6 + Math.floor(difficulty * 0.3);
+
+            for (let i = 0; i < platformCount; i++) {
+                const progress = i / platformCount;
+
+                // Platform size decreases with difficulty
+                const platformWidth = Math.max(60, 120 - difficulty * 1.2);
+
+                // Height variation increases with difficulty
+                const yVariation = 80 + difficulty * 2;
+                currentY = 450 - (Math.random() * yVariation);
+                currentY = Math.max(150, Math.min(500, currentY));
+
+                // Gap increases with difficulty
+                const gap = 80 + difficulty * 2;
+                currentX += gap;
+
+                // --- LEVEL DEVIL MECHANICS LOGIC ---
+                const isSafeLevel = (gameLevel === 5); // Level 5 is a sanctuary without pranks
+
+                if (i === 0) {
+                    if (!isSafeLevel) {
+                        const modifiers = ['reverse', 'heavy', 'floaty', 'fast', 'invisible_blocks', '', '', ''];
+                        devilModifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+                    } else {
+                        devilModifier = '';
+                    }
+                }
+
+                // Decide platform type based on difficulty
+                if (!isSafeLevel && devilModifier === 'invisible_blocks' && i > 0 && Math.random() < 0.3) {
+                    // 5. Invisible Block Prank (must hit ceiling to reveal)
+                    platforms.push(new InvisibleBlock(currentX, currentY - 80, platformWidth, 20));
+                    platforms.push(new Platform(currentX, currentY, platformWidth, 20)); // also need regular floor so you don't just fall
+                } else if (!isSafeLevel && i > 0 && Math.random() < 0.25 + difficultyPercent * 0.4) {
+                    // 1. Moving Platform Prank
+                    const moveRange = 80 + difficulty * 2;
+                    const speed = 0.8 + difficulty * 0.08;
+                    const movingPlatform = new MovingPlatform(
+                        currentX, currentY, platformWidth, 20,
+                        currentX - moveRange / 2, currentX + moveRange / 2, speed
+                    );
+                    movingPlatforms.push(movingPlatform);
+                    currentX = movingPlatform.endX;
+                } else if (!isSafeLevel && i > 0 && i < platformCount - 1 && Math.random() < 0.25) {
+                    // 2. Fake Platform Prank! Looks real, but will fall down
+                    platforms.push(new FakePlatform(currentX, currentY, platformWidth, 20));
+                } else {
+                    // Safe, Normal Platform
+                    platforms.push(new Platform(currentX, currentY, platformWidth, 20));
+                }
+
+                // Add Troll Boxes or Enemies
+                if (!isSafeLevel && i > 0 && i < platformCount - 1 && Math.random() < 0.15) {
+                    if (Math.random() > 0.5) {
+                        // 6. Troll Box Prank
+                        const type = Math.random() > 0.5 ? 'fall' : 'push';
+                        const boxY = type === 'fall' ? currentY - 200 : currentY - 40;
+                        platforms.push(new TrollBox(currentX + 20, boxY, 40, 40, type));
+                    } else {
+                        // 7. Troll Enemy Prank
+                        devilEnemies.push(new TrollEnemy(currentX + 20, currentY - 30, 30, 30));
+                    }
+                }
+
+                // Add spikes ON platforms
+                if (!isSafeLevel && i > 0 && i < platformCount - 1) {
+                    const platform = platforms[platforms.length - 1] || movingPlatforms[movingPlatforms.length - 1];
+                    if (platform && !(platform instanceof InvisibleBlock) && !(platform instanceof TrollBox)) {
+                        const spikeWidth = Math.min(platform.width * 0.7, 60 + Math.random() * 40);
+                        const spikeX = platform.x + (platform.width - spikeWidth) / 2;
+
+                        if (Math.random() < 0.3 + difficultyPercent * 0.4) {
+                            // Normal visible spike
+                            spikes.push(new Spike(spikeX, platform.y - 20, spikeWidth));
+                        } else if (Math.random() < 0.2) {
+                            // 3. Hidden Spike Prank! completely invisible until you land
+                            spikes.push(new HiddenSpike(spikeX, platform.y - 20, spikeWidth));
+                        }
+                    }
+                }
+
+                // Add spikes below platforms/falling from sky
+                if (!isSafeLevel && i > 0) {
+                    const spikeWidth = 60 + Math.random() * 80;
+                    const spikeX = currentX - gap / 2;
+
+                    if (Math.random() < 0.25 + difficultyPercent * 0.35) {
+                        // Regular ground spike
+                        spikes.push(new Spike(spikeX, 580, spikeWidth));
+                    } else if (Math.random() < 0.25) {
+                        // 4. Falling Spike Prank! Drops from the sky as you jump the gap
+                        spikes.push(new FallingSpike(spikeX, Math.max(50, currentY - 250), spikeWidth));
+                    }
+                }
+
+                // Add walls as obstacles (appears from level 1, 15-40% chance)
+                if (!isSafeLevel && i > 0 && i < platformCount - 1 && Math.random() < 0.15 + difficultyPercent * 0.25) {
+                    const wallHeight = 60 + Math.random() * (60 + difficulty);
+                    const wallX = currentX - gap / 3;
+                    const wallY = 580 - wallHeight;
+                    walls.push(new Wall(wallX, wallY, 20, wallHeight));
+                }
+
+                currentX += platformWidth;
+            }
+
+            // Final platform with info item
+            const lastPlatform = new Platform(currentX + 100, 450, 140, 20);
+            platforms.push(lastPlatform);
+
+            // 8. Fake Exit Door Prank
+            if (gameLevel !== 5 && Math.random() < 0.3) {
+                infoItem = new FakeInfoItem(lastPlatform.x + lastPlatform.width / 2 - 15, lastPlatform.y - 40);
+            } else {
+                infoItem = new InfoItem(lastPlatform.x + lastPlatform.width / 2 - 15, lastPlatform.y - 40);
+            }
+
+            // Spawn player on first platform
+            player.x = startPlatform.x + startPlatform.width / 2 - player.width / 2;
+            player.y = startPlatform.y - player.height - 5; // Slightly above platform
+            player.velocityX = 0;
+            player.velocityY = 0;
+            player.onGround = false;
+        }
+
+        function respawnPlayer() {
+            // Respawn on first platform
+            const startPlatform = platforms[0];
+            player.x = startPlatform.x + startPlatform.width / 2 - player.width / 2;
+            player.y = startPlatform.y - player.height - 5;
+            player.velocityX = 0;
+            player.velocityY = 0;
+            player.onGround = false;
+
+            // Re-generate the tricky level so the falling pranks reset!
+            if (gameLevel !== 5) {
+                generateLevel();
+            }
+        }
+
+        function collectInfo() {
+            // Create particles
+            for (let i = 0; i < 20; i++) {
+                particles.push(new Particle(infoItem.x + 15, infoItem.y + 15));
+            }
+
+            infoItem = null;
+            collectedInfoCount++;
+
+            document.getElementById('collectedInfo').textContent = collectedInfoCount;
+
+            // Show modal with info
+            setTimeout(() => {
+                const modal = document.getElementById('levelModal');
+                document.getElementById('modalLevel').textContent = gameLevel;
+                const info = infos[gameLevel - 1];
+                document.getElementById('modalInfoText').textContent = info.substring(info.indexOf('-') + 1).trim();
+                modal.classList.add('active');
+            }, 500);
+        }
+
+        function nextLevel() {
+            document.getElementById('levelModal').classList.remove('active');
+
+            if (gameLevel < 50) {
+                gameLevel++;
+                document.getElementById('currentLevel').textContent = gameLevel;
+                generateLevel();
+            } else {
+                alert('🎉 مبروك! لقد أكملت جميع المستويات! 🎉');
+                gameLevel = 1;
+                collectedInfoCount = 0;
+                document.getElementById('currentLevel').textContent = gameLevel;
+                document.getElementById('collectedInfo').textContent = collectedInfoCount;
+                generateLevel();
+            }
+        }
+
+        let lastGameLoopTime = performance.now();
+        const gameFrameInterval = 1000 / 60; // Cap at 60 FPS
+
+        function gameLoop(timestamp) {
+            if (!document.getElementById('game-page').classList.contains('active')) return;
+
+            requestAnimationFrame(gameLoop);
+
+            const ts = timestamp || performance.now();
+            const elapsed = ts - lastGameLoopTime;
+            if (elapsed < gameFrameInterval) return;
+            lastGameLoopTime = ts - (elapsed % gameFrameInterval);
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw background mountains/ground like sketch
+            ctx.save();
+            ctx.translate(-cameraX, 0);
+
+            // Draw wavy ground lines
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+
+            // Bottom ground line
+            ctx.beginPath();
+            for (let x = 0; x < 3000; x += 10) {
+                const y = 580 + Math.sin(x * 0.02) * 10;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Middle background line
+            ctx.beginPath();
+            for (let x = 0; x < 3000; x += 10) {
+                const y = 500 + Math.sin(x * 0.03 + 50) * 15;
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            ctx.restore();
+
+            // Update camera to follow player
+            let targetCameraX = player.x - canvas.width / 3;
+
+            // Camera Trick Modifer: sways wildly back and forth
+            if (devilModifier === 'camera_trick') {
+                targetCameraX = player.x + Math.sin(performance.now() * 0.005) * 400 - canvas.width / 2;
+            }
+
+            cameraX += (targetCameraX - cameraX) * 0.1; // Smooth camera movement
+            cameraX = Math.max(0, cameraX); // Don't go past left edge
+
+            // Save context and apply camera transform
+            ctx.save();
+            ctx.translate(-cameraX, 0);
+
+            // Update moving platforms
+            movingPlatforms.forEach(platform => platform.update());
+
+            // Update and draw particles
+            particles = particles.filter(p => p.life > 0);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Draw platforms
+            platforms.forEach(platform => {
+                if (platform.update) platform.update(player); // TrollBoxes take player
+                platform.draw();
+            });
+
+            // Draw moving platforms
+            movingPlatforms.forEach(platform => platform.draw());
+
+            // Draw walls
+            walls.forEach(wall => wall.draw());
+
+            // Draw spikes (and trigger prank mechanics based on player proximity)
+            spikes.forEach(spike => {
+                if (spike.update) spike.update(player.x);
+                spike.draw();
+            });
+
+            // Draw devil enemies
+            devilEnemies.forEach(enemy => {
+                enemy.update(player.x);
+                enemy.draw();
+                if (enemy.checkCollision(player)) {
+                    respawnPlayer();
+                }
+            });
+
+            // Draw info item
+            if (infoItem) {
+                if (infoItem.update) infoItem.update(player.x);
+                infoItem.draw();
+            }
+
+            // Update and draw player
+            player.update();
+            player.draw();
+
+            // Restore context
+            ctx.restore();
+        }
+
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            keys2[e.key] = true;
+            if (e.key === ' ') e.preventDefault();
+        });
+
+        document.addEventListener('keyup', (e) => {
+            keys2[e.key] = false;
+        });
+
+        window.showPage = showPage;
+        window.updateInfoDisplay = updateInfoDisplay;
+        window.nextInfo = nextInfo;
+        window.previousInfo = previousInfo;
+        window.nextLevel = nextLevel;
+        window.respawnPlayer = respawnPlayer;
+
+        // Initialize slider on page load
+        updateInfoDisplay();
+
+        // // Puzzle Game Variables
+        // let puzzlePieces = [];
+        // let correctOrder = [];
+        // let currentOrder = [];
+        // let draggedPiece = null;
+        // let puzzleMoves = 0;
+        let puzzleTimer = null;
+        let puzzleSeconds = 0;
+        let wrongAttempts = 0;
+
+        // Store the original correct state of pieces
+        let originalPiecesData = [];
+
+        // Saudi traditional clothing images - placeholder images (user should upload their own)
+        const puzzleImages = [
+            {
+                name: 'زي المنطقة الوسطة',
+                url: './assets/Clothes1.png'
+            },
+            {
+                name: 'زي المنطقة الشرقية',
+                url: './assets/Clothes2.png'
+            },
+            {
+                name: 'زي المنطقة الغربية',
+                url: './assets/Clothes3.png'
+            },
+            {
+                name: 'زي المنطقة الجنوبية',
+                url: './assets/Clothes4.png'
+            },
+            {
+                name: 'زي المنطقة الشمالية',
+                url: './assets/Clothes5.png'
+            }
+        ];
+
+        let currentPuzzleImageIndex = 0;
+        let puzzleImageUrl = puzzleImages[0].url;
+
+        function initPuzzle() {
+            const board = document.getElementById('puzzleBoard');
+            if (!board) return; // Guard clause if puzzle board doesn't exist on this page
+
+            board.innerHTML = '';
+            puzzlePieces = [];
+            correctOrder = [];
+            currentOrder = [];
+            puzzleMoves = 0;
+            puzzleSeconds = 0;
+            wrongAttempts = 0;
+            originalPiecesData = []; // Reset original data
+
+            const movesEl = document.getElementById('puzzleMoves');
+            if (movesEl) movesEl.textContent = '0';
+
+            const timerEl = document.getElementById('puzzleTimer');
+            if (timerEl) timerEl.textContent = 'الوقت: 00:00';
+
+            const attemptsEl = document.getElementById('wrongAttempts');
+            if (attemptsEl) attemptsEl.textContent = '0';
+
+            // Update preview image
+            const previewImg = document.getElementById('previewImage');
+            if (previewImg) previewImg.src = puzzleImageUrl;
+
+            const nameEl = document.getElementById('currentImageName');
+            if (nameEl) nameEl.textContent = puzzleImages[currentPuzzleImageIndex].name;
+
+            // Create 9 puzzle pieces (3x3 grid)
+            for (let i = 0; i < 9; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'puzzle-piece';
+                piece.draggable = true;
+                piece.dataset.correctPosition = i;
+
+                // Calculate background position for each piece
+                const row = Math.floor(i / 3);
+                const col = i % 3;
+                const bgX = col * 150;
+                const bgY = row * 150;
+
+                piece.style.backgroundImage = `url(${puzzleImageUrl})`;
+                piece.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+
+                // Store original correct data for THIS position
+                originalPiecesData.push({
+                    position: i,
+                    bgX: bgX,
+                    bgY: bgY,
+                    bgPosition: `-${bgX}px -${bgY}px`
+                });
+
+                // Drag events
+                piece.addEventListener('dragstart', handleDragStart);
+                piece.addEventListener('dragover', handleDragOver);
+                piece.addEventListener('dragleave', handleDragLeave);
+                piece.addEventListener('drop', handleDrop);
+                piece.addEventListener('dragend', handleDragEnd);
+
+                board.appendChild(piece);
+                puzzlePieces.push(piece);
+                correctOrder.push(i);
+                currentOrder.push(i);
+            }
+
+            console.log('✅ Original pieces data saved:', originalPiecesData);
+
+            // Start timer when puzzle page is shown
+            if (puzzleTimer) clearInterval(puzzleTimer);
+            puzzleTimer = setInterval(updateTimer, 1000);
+        }
+
+        function changePuzzleImage(index) {
+            currentPuzzleImageIndex = index;
+            puzzleImageUrl = puzzleImages[index].url;
+            initPuzzle();
+            setTimeout(() => shufflePuzzle(), 100);
+        }
+
+        function loadCustomImage(event) {
+            const file = event.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    puzzleImageUrl = e.target.result;
+                    document.getElementById('currentImageName').textContent = 'صورتك الخاصة';
+                    initPuzzle();
+                    setTimeout(() => shufflePuzzle(), 100);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('⚠️ من فضلك اختر صورة صحيحة!');
+            }
+        }
+
+        function handleDragStart(e) {
+            draggedPiece = e.target;
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+
+            // Add visual feedback
+            if (e.target.classList.contains('puzzle-piece') && e.target !== draggedPiece) {
+                e.target.classList.add('drag-over');
+            }
+
+            return false;
+        }
+
+        function handleDragLeave(e) {
+            if (e.target.classList.contains('puzzle-piece')) {
+                e.target.classList.remove('drag-over');
+            }
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+
+            // Remove all drag-over classes
+            document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+
+            const dropTarget = e.target;
+            if (draggedPiece !== dropTarget && dropTarget.classList.contains('puzzle-piece')) {
+                // Get parent board
+                const board = document.getElementById('puzzleBoard');
+
+                // Get all pieces as array
+                const allPieces = Array.from(board.children);
+
+                // Find positions
+                const draggedPosition = allPieces.indexOf(draggedPiece);
+                const dropPosition = allPieces.indexOf(dropTarget);
+
+                // Create a copy of pieces array
+                const piecesCopy = [...allPieces];
+
+                // Swap the pieces in the copy
+                [piecesCopy[draggedPosition], piecesCopy[dropPosition]] =
+                    [piecesCopy[dropPosition], piecesCopy[draggedPosition]];
+
+                // Clear board
+                board.innerHTML = '';
+
+                // Re-append in new order
+                piecesCopy.forEach(piece => board.appendChild(piece));
+
+                // Update current order array
+                currentOrder = Array.from(board.children).map(p => parseInt(p.dataset.correctPosition));
+
+                // Increment moves
+                puzzleMoves++;
+                document.getElementById('puzzleMoves').textContent = puzzleMoves;
+
+                // Check if puzzle is complete
+                checkPuzzleComplete();
+            }
+
+            return false;
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+            // Remove all drag-over classes
+            document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+        }
+
+        function shufflePuzzle() {
+            const board = document.getElementById('puzzleBoard');
+            if (!board) return;
+            const pieces = Array.from(board.children);
+
+            // Fisher-Yates shuffle
+            for (let i = pieces.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                board.appendChild(pieces[j]);
+            }
+
+            // Update current order
+            currentOrder = Array.from(board.children).map(p => parseInt(p.dataset.correctPosition));
+
+            // Reset stats
+            puzzleMoves = 0;
+            puzzleSeconds = 0;
+            const movesEl = document.getElementById('puzzleMoves');
+            if (movesEl) movesEl.textContent = '0';
+
+            const timerEl = document.getElementById('puzzleTimer');
+            if (timerEl) timerEl.textContent = 'الوقت: 00:00';
+
+            // Restart timer
+            if (puzzleTimer) clearInterval(puzzleTimer);
+            puzzleTimer = setInterval(updateTimer, 1000);
+        }
+
+        function resetPuzzle() {
+            initPuzzle();
+        }
+
+        function resetPuzzleAndClose() {
+            document.getElementById('puzzleCompleteModal').classList.remove('active');
+            initPuzzle();
+            shufflePuzzle();
+        }
+
+        function selectNewImage(index) {
+            document.getElementById('puzzleCompleteModal').classList.remove('active');
+            currentPuzzleImageIndex = index;
+            puzzleImageUrl = puzzleImages[index].url;
+            initPuzzle();
+            setTimeout(() => shufflePuzzle(), 100);
+        }
+
+        function checkPuzzleComplete() {
+            const board = document.getElementById('puzzleBoard');
+            const pieces = Array.from(board.children);
+
+            let isComplete = true;
+            pieces.forEach((piece, index) => {
+                // Calculate what the background position should be for this index
+                const row = Math.floor(index / 3);
+                const col = index % 3;
+                const expectedX = col * 150;
+                const expectedY = row * 150;
+
+                // Get actual background position and parse it
+                const bgPos = piece.style.backgroundPosition;
+                const matches = bgPos.match(/-?\d+/g);
+
+                if (!matches || matches.length < 2) {
+                    isComplete = false;
+                    return;
+                }
+
+                const actualX = Math.abs(parseInt(matches[0]));
+                const actualY = Math.abs(parseInt(matches[1]));
+
+                // Compare numeric values
+                if (actualX !== expectedX || actualY !== expectedY) {
+                    isComplete = false;
+                }
+            });
+
+            if (isComplete) {
+                // Stop timer
+                if (puzzleTimer) {
+                    clearInterval(puzzleTimer);
+                    puzzleTimer = null;
+                }
+
+                // Mark all pieces as correct
+                pieces.forEach(piece => piece.classList.add('correct'));
+
+                // Show completion modal
+                setTimeout(() => {
+                    document.getElementById('finalTime').textContent = document.getElementById('puzzleTimer').textContent.replace('الوقت: ', '');
+                    document.getElementById('finalMoves').textContent = puzzleMoves;
+                    document.getElementById('finalWrongAttempts').textContent = wrongAttempts;
+                    document.getElementById('puzzleCompleteModal').classList.add('active');
+                }, 500);
+            }
+        }
+
+        function checkSolution() {
+            const board = document.getElementById('puzzleBoard');
+            if (!board) return;
+            const pieces = Array.from(board.children);
+
+            console.log('=== Checking Solution Against Original Image ===');
+            let isCorrect = true;
+
+            pieces.forEach((piece, currentPosition) => {
+                // Get the expected data for THIS position from original
+                const expectedData = originalPiecesData[currentPosition];
+
+                // Get actual background position of the piece
+                const bgPos = piece.style.backgroundPosition;
+                console.log(`Position ${currentPosition}:`);
+                console.log(`  Expected: ${expectedData.bgPosition}`);
+                console.log(`  Actual: ${bgPos}`);
+
+                // Parse positions
+                const parts = bgPos.split(' ');
+                if (parts.length >= 2) {
+                    const actualX = Math.abs(parseInt(parts[0]));
+                    const actualY = Math.abs(parseInt(parts[1]));
+
+                    // Compare with original expected values
+                    if (actualX !== expectedData.bgX || actualY !== expectedData.bgY) {
+                        isCorrect = false;
+                        console.log(`  ❌ WRONG! Expected (${expectedData.bgX}, ${expectedData.bgY}), got (${actualX}, ${actualY})`);
+                    } else {
+                        console.log(`  ✅ Correct!`);
+                    }
+                } else {
+                    console.log(`  ⚠️ Could not parse position`);
+                    isCorrect = false;
+                }
+            });
+
+            console.log(`\n🎯 Final result: ${isCorrect ? '✅ CORRECT - Matches original image!' : '❌ WRONG - Does not match original image'}`);
+
+            if (isCorrect) {
+                // Correct solution!
+                if (puzzleTimer) {
+                    clearInterval(puzzleTimer);
+                    puzzleTimer = null;
+                }
+
+                pieces.forEach(piece => piece.classList.add('correct'));
+
+                // Show success message
+                setTimeout(() => {
+                    document.getElementById('finalTime').textContent = document.getElementById('puzzleTimer').textContent.replace('الوقت: ', '');
+                    document.getElementById('finalMoves').textContent = puzzleMoves;
+                    document.getElementById('finalWrongAttempts').textContent = wrongAttempts;
+                    document.getElementById('puzzleCompleteModal').classList.add('active');
+                }, 300);
+            } else {
+                // Wrong solution - show warning
+                wrongAttempts++;
+                document.getElementById('wrongAttempts').textContent = wrongAttempts;
+
+                board.classList.add('wrong-answer');
+
+                // Show warning message
+                const warningDiv = document.createElement('div');
+                warningDiv.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(135deg, #FF4444, #CC0000);
+                    color: white;
+                    padding: 2rem 3rem;
+                    border-radius: 20px;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    z-index: 10000;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+                    text-align: center;
+                    animation: fadeInUp 0.3s ease-out;
+                `;
+                warningDiv.innerHTML = `
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                    <div>الحل غير صحيح!</div>
+                    <div style="font-size: 1.1rem; margin-top: 1rem; opacity: 0.9;">الصورة لا تطابق الأصلية</div>
+                    <div style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.8;">المحاولة رقم ${wrongAttempts}</div>
+                    <div style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.7;">انظر للصورة الأصلية في الأعلى ✨</div>
+                `;
+                document.body.appendChild(warningDiv);
+
+                // Remove warning after 2.5 seconds
+                setTimeout(() => {
+                    warningDiv.style.animation = 'fadeOut 0.3s ease-out';
+                    warningDiv.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(warningDiv);
+                        board.classList.remove('wrong-answer');
+                    }, 300);
+                }, 2500);
+            }
+        }
+
+        function updateTimer() {
+            puzzleSeconds++;
+            const minutes = Math.floor(puzzleSeconds / 60);
+            const seconds = puzzleSeconds % 60;
+            const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            const timerEl = document.getElementById('puzzleTimer');
+            if (timerEl) timerEl.textContent = `الوقت: ${timeString}`;
+        }
+
+        function nextPuzzle() {
+            changePuzzleImage((currentPuzzleImageIndex + 1) % puzzleImages.length);
+        }
+
+        // Expose Puzzle Functions (Part 1)
+        window.changePuzzleImage = changePuzzleImage;
+        window.selectNewImage = selectNewImage;
+        window.loadCustomImage = loadCustomImage;
+        window.resetPuzzleAndClose = resetPuzzleAndClose;
+
+        // Initialize puzzle when page is shown
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize info slider since it's on the landing page now
+            updateInfoDisplay();
+            // Don't init puzzle immediately, wait for user to navigate to puzzle page
+        });
+
+        // Expose Global Functions for HTML onclick attributes
+        window.showPage = showPage;
+        window.nextInfo = nextInfo;
+        window.previousInfo = previousInfo;
+        window.nextLevel = nextLevel; // from game modal
+        window.checkSolution = checkSolution;
+
+        // Expose Puzzle Functions
+        window.checkAnswer = checkSolution;
+        window.nextPuzzle = nextPuzzle;
+        window.initPuzzle = initPuzzle;
+        window.shufflePuzzle = shufflePuzzle;
+        window.resetPuzzle = resetPuzzle;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
