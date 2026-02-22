@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
@@ -138,6 +138,7 @@
         #landing-page {
             background-color: #2d1a0a;
             background-image: url('./خلفية\ يوم\ التأسيس-01.png');
+            left: 90px;
         }
 
         /* Tablet/Medium Screen Background */
@@ -495,14 +496,15 @@
 
         /* Game Page */
         #game-page {
-            background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
-            min-height: 100vh;
-            padding: 2rem;
+            background: url('./خلفية\ يوم\ التأسيس-01.png');
+            min-height: 10vh;
+            max-height: 120vh;
+            /* height: 220vh; */
+            padding: 7rem;
         }
 
         .game-header {
             text-align: center;
-            margin-bottom: 2rem;
         }
 
         .game-header h1 {
@@ -519,7 +521,7 @@
             display: inline-flex;
             gap: 3rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin: 2rem;
         }
 
         .game-stat {
@@ -1920,9 +1922,15 @@
                     <div class="game-stat-value" id="currentLevel">1</div>
                 </div>
                 <div class="game-stat">
-                    <div class="game-stat-label">المعلومات المكتشفة</div>
+                    <div class="game-stat-label">المعلومات</div>
                     <div class="game-stat-value" id="collectedInfo">0</div>
                 </div>
+                <button onclick="window.location.reload()"
+                    style="background:var(--primary-brown); color:white; border:none; padding:3px 3px; border-radius:8px; cursor:pointer; font-family:'Cairo', sans-serif; font-weight:bold; width: 100%; transition: background 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"
+                    onmouseover="this.style.background='var(--secondary-gold)'"
+                    onmouseout="this.style.background='var(--primary-brown)'">
+                    العودة للرئيسية
+                </button>
             </div>
         </div>
 
@@ -1946,26 +1954,6 @@
             </div>
         </div>
 
-        <div class="game-controls">
-            <h3>طريقة اللعب</h3>
-            <div>
-                <span class="control-key">←</span>
-                <span class="control-key">→</span>
-                للحركة يمين ويسار
-            </div>
-            <div style="margin-top: 0.5rem;">
-                <span class="control-key">مسافة</span>
-                للقفز
-            </div>
-            <p style="margin-top: 1rem; color: #666;">
-                اجمع المعلومات واكمل جميع المستويات!<br>
-                احذر من الأشواك!<br>
-                استخدم المنصات المتحركة!<br>
-            </p>
-            <button class="back-btn" onclick="showPage('landing-page')">
-                العودة للمعلومات
-            </button>
-        </div>
     </div>
 
     <!-- Level Complete Modal -->
